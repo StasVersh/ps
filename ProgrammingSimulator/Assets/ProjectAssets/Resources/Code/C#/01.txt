@@ -1,6 +1,3 @@
-using UnityEngine;
-using System.Collections;
-
 public class ExampleClass : MonoBehaviour
 {
     CharacterController characterController;
@@ -35,3 +32,4 @@ public class ExampleClass : MonoBehaviour
         characterController.Move(moveDirection * Time.deltaTime);
     }
 }
+

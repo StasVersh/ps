@@ -11,6 +11,5 @@ public class NotepadController : MonoBehaviour
     private void Construct(Code code)
     {
         _code = code;
-        _code.Text.text = File.ReadAllText("C:\\Users\\micro\\Documents\\GitHub\\ps\\ProgrammingSimulator\\Assets\\ProjectAssets\\Resources\\Code\\C#\\01.txt");
     }
 }
