@@ -6,6 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/ProjectAssets/Scenes/Game.unity
+    path: Assets/ProjectAssets/Scenes/Boot.unity
+    guid: 2231f9e42edd80e439412f1e898f5272
+  - enabled: 1
+    path: Assets/ProjectAssets/Scenes/SavaDoors.unity
     guid: bc95f80933337014f9a13f4885f2e594
+  - enabled: 1
+    path: Assets/ProjectAssets/Scenes/SDos.unity
+    guid: 575662032313fcf4c824e4d22d6bf133
   m_configObjects: {}
