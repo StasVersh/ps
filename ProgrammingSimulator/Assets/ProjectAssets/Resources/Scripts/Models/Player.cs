@@ -18,9 +18,9 @@ namespace ProjectAssets.Resources.Scripts.Models
             OnValueChanged.Invoke();
         }
 
-        public void Increment()
+        public void Increment(int count)
         {
-            Coins += Step;
+            Coins += count;
             PlayerPrefs.SetInt(Preferences.Coins, Coins);
             OnValueChanged.Invoke();
         }

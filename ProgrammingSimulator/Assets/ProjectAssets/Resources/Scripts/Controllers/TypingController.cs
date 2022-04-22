@@ -42,8 +42,7 @@ public class TypingController : MonoBehaviour
                 _textForWriting.text += _codeBody[_index];
                 _scrollRect.normalizedPosition = new Vector2(0, 0);
                 var rect = _scrollRect.content.rect;
-                _scrollRect.content.rect.Set(rect.x, rect.y, _textForWriting.maxWidth, _textForWriting.maxHeight);
-                _player.Increment();
+                 _scrollRect.content.rect.Set(rect.x, rect.y, _textForWriting.maxWidth, _textForWriting.maxHeight);
                 _index++;
                 if (_codeBody[_index] != ' ' && _codeBody[_index] != '\n' && _codeBody[_index] != '\r') count++;
             }   

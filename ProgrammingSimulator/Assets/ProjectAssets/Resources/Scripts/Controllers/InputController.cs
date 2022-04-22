@@ -53,6 +53,11 @@ namespace ProjectAssets.Pages.Desctop.Scripts.Controllers
                     _inputManager.OnClick.Invoke();
                 }
             }
+
+            if (Input.GetKey(KeyCode.LeftShift) && Input.GetKey(KeyCode.B))
+            {
+                _inputManager.OnBuild.Invoke();
+            }
         }
     }
 }
