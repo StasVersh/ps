@@ -46,17 +46,19 @@ namespace ProjectAssets.Pages.Desctop.Scripts.Controllers
         
         private void Update()
         {
-            foreach (KeyCode keyCode in _clicksKeyCodes)
-            {
-                if(Input.GetKeyDown(keyCode))
-                {
-                    _inputManager.OnClick.Invoke();
-                }
-            }
-
             if (Input.GetKey(KeyCode.LeftShift) && Input.GetKey(KeyCode.B))
             {
                 _inputManager.OnBuild.Invoke();
+            }
+            else
+            {
+                foreach (KeyCode keyCode in _clicksKeyCodes)
+                {
+                    if(Input.GetKeyDown(keyCode))
+                    {
+                        _inputManager.OnClick.Invoke();
+                    }
+                }
             }
         }
     }

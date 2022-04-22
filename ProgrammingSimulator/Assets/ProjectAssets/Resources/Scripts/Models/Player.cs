@@ -13,7 +13,7 @@ namespace ProjectAssets.Resources.Scripts.Models
 
         public Player()
         {
-            Coins = PlayerPrefs.GetInt(Preferences.Coins);
+            Update();
             OnValueChanged = new UnityEvent();
             OnValueChanged.Invoke();
         }
@@ -29,6 +29,11 @@ namespace ProjectAssets.Resources.Scripts.Models
             Coins -= cost;
             PlayerPrefs.SetInt(Preferences.Coins, Coins);
             OnValueChanged.Invoke();
+        }
+
+        public void Update()
+        {
+            Coins = PlayerPrefs.GetInt(Preferences.Coins);
         }
     }
 }

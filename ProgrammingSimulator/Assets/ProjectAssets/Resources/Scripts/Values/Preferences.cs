@@ -1,6 +1,4 @@
-﻿using ProjectAssets.Pages.Notepad.Scripts.Models;
-using ProjectAssets.Resources.Scripts.Models;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace ProjectAssets.Resources.Scripts.Values
 {
