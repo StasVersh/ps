@@ -24,5 +24,11 @@ namespace ProjectAssets.Resources.Scripts.Models
             PlayerPrefs.SetInt(Preferences.Coins, Coins);
             OnValueChanged.Invoke();
         }
+        public void Decrement(int cost)
+        {
+            Coins -= cost;
+            PlayerPrefs.SetInt(Preferences.Coins, Coins);
+            OnValueChanged.Invoke();
+        }
     }
 }
