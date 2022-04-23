@@ -60,6 +60,10 @@ namespace ProjectAssets.Pages.Desctop.Scripts.Controllers
                     }
                 }
             }
+            if (Input.GetKeyDown(KeyCode.Return))
+            {
+                _inputManager.OnEnter.Invoke();
+            }
         }
     }
 }

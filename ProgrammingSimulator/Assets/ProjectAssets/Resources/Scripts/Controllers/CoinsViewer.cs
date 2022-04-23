@@ -23,6 +23,6 @@ public class CoinsViewer : MonoBehaviour
 
     private void OnValueChanged()
     {
-        _text.text = _player.Coins.ToString();
+        _text.text = _player.SCD.ToString();
     }
 }

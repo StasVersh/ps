@@ -6,11 +6,13 @@ namespace ProjectAssets.Resources.Scripts.Models
     {
         public UnityEvent OnClick { get; }
         public UnityEvent OnBuild { get; }
+        public UnityEvent OnEnter { get; }
         
         public InputManager()
         {
             OnClick = new UnityEvent();
             OnBuild = new UnityEvent();
+            OnEnter = new UnityEvent();
         }
     }
 }

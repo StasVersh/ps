@@ -24,10 +24,12 @@ namespace ProjectAssets.Pages.SDos.SDCode.Scripts.Controllers
         private ScrollRect _scrollRect;
         private Button _buildButton;
         private ProgressBar _progressBar;
+        private ModalWindowManager _modalWindow;
         
         private int _index;
         private int _symbols;
         private string _codeBody;
+        private bool _isCompelating;
         private List<string> _paths = new List<string>()
         {
             @"C:\Users\micro\Documents\GitHub\ps\ProgrammingSimulator\Assets\ProjectAssets\Resources\Code\10\01.txt",
@@ -40,51 +42,56 @@ namespace ProjectAssets.Pages.SDos.SDCode.Scripts.Controllers
             _sdCodeModel = sdCodeModel;
             _inputManager = inputManager;
             _player = player;
-            _textForWriting = sdCodeModel.Code;
-            _scrollRect = sdCodeModel.Scrolling;
-            _symbolsCounterText = sdCodeModel.Symbols;
-            _buildButton = sdCodeModel.BuildButton;
-            _progressBar = sdCodeModel.ProgressBar;
-            
+            UIBinding();
+            AddListeners();
+        }
+        
+        private void Start()
+        {
+            ResetUI();
+        }
+
+        private void UIBinding()
+        {
+            _textForWriting = _sdCodeModel.Code;
+            _scrollRect = _sdCodeModel.Scrolling;
+            _symbolsCounterText = _sdCodeModel.Symbols;
+            _buildButton = _sdCodeModel.BuildButton;
+            _progressBar = _sdCodeModel.ProgressBar;
+            _modalWindow = _sdCodeModel.DoneCompilationWindow;
+        }
+
+        private void AddListeners()
+        {
             _progressBar.onValueChanged.AddListener(Progressing);
             _buildButton.onClick.AddListener(Build);
             _inputManager.OnClick.AddListener(OnClick);
             _inputManager.OnBuild.AddListener(Build);
+            _inputManager.OnEnter.AddListener(Enter);
         }
 
-        private void Start()
+        private void Enter()
         {
-            _textForWriting.text = String.Empty;
-            _codeBody += File.ReadAllText(_paths.First());
-            _symbolsCounterText.text = 0.ToString();
-            _player.Step = 1;
-            _progressBar.currentPercent = 0f;
-            _progressBar.isOn = false;
-            _progressBar.restart = false;
+            if(_isCompelating) return;
+            if (_modalWindow.isOn) _modalWindow.CloseWindow();
         }
 
         private void OnClick()
         {
-            if(_progressBar.currentPercent == 0f)
-                if (_index < _codeBody.Length)
-                {
-                    int count = 0;
-                    while (count < _player.Step)
-                    {
-                        _textForWriting.text += _codeBody[_index];
-                        _scrollRect.normalizedPosition = new Vector2(0, 0);
-                        var rect = _scrollRect.content.rect;
-                        _scrollRect.content.rect.Set(rect.x, rect.y, _textForWriting.maxWidth, _textForWriting.maxHeight);
-                        _symbols++;
-                        _index++;
-                        if (_codeBody[_index] != ' ' && _codeBody[_index] != '\n' && _codeBody[_index] != '\r') count++;
-                    }   
-                }
-                else
-                {
-                    _codeBody += File.ReadAllText(_paths[Random.Range(0, _paths.Count - 1)]);;
-                }
-
+            if(_isCompelating) return;
+            _codeBody ??= File.ReadAllText(_paths[Random.Range(0, _paths.Count - 1)]);
+            var count = 0;
+            while (count < _player.Step)
+            {
+                if (_index == _codeBody.Length - 1) _codeBody += $"\n{File.ReadAllText(_paths[Random.Range(0, _paths.Count - 1)])}";
+                _textForWriting.text += _codeBody[_index];
+                _scrollRect.normalizedPosition = new Vector2(0, 0);
+                var rect = _scrollRect.content.rect;
+                _scrollRect.content.rect.Set(rect.x, rect.y, _textForWriting.maxWidth, _textForWriting.maxHeight);
+                _symbols++;
+                _index++;
+                if (_codeBody[_index] != ' ' && _codeBody[_index] != '\n' && _codeBody[_index] != '\r') count++;
+            }
             _symbolsCounterText.text = _symbols.ToString();
         }
 
@@ -99,14 +106,21 @@ namespace ProjectAssets.Pages.SDos.SDCode.Scripts.Controllers
         
         public void Progressing(float value)
         {
-            if (value >= 100f)
-            {
-                _player.Increment(_symbols);
-                _symbols = 0;
-                _symbolsCounterText.text = _symbols.ToString();
-                _progressBar.currentPercent = 0f;
-                _progressBar.isOn = false;
-            }
+            _isCompelating = value is > 0 and <= 100;
+            if (!(value >= 100f)) return;
+            _modalWindow.OpenWindow();
+            _player.Increment(_symbols);
+            ResetUI();
+        }
+
+        private void ResetUI()
+        {
+            _symbols = 0;
+            _symbolsCounterText.text = _symbols.ToString();
+            _progressBar.currentPercent = 0f;
+            _progressBar.isOn = false;
+            _progressBar.restart = false;
+            _progressBar.UpdateUI();
         }
     }
 }

@@ -7,9 +7,10 @@ namespace ProjectAssets.Resources.Scripts.Models
 {
     public class Player
     {
-        public int Coins { get; private set; }
+        public int SCD { get; private set; }
         public UnityEvent OnValueChanged { get; set; }
-        public int Step { get; set; }
+        public int Step { get; } = 5;
+        public int Rate { get; } = 5;
 
         public Player()
         {
@@ -20,20 +21,20 @@ namespace ProjectAssets.Resources.Scripts.Models
 
         public void Increment(int count)
         {
-            Coins += count;
-            PlayerPrefs.SetInt(Preferences.Coins, Coins);
+            SCD += count * Rate;
+            PlayerPrefs.SetInt(Preferences.Coins, SCD);
             OnValueChanged.Invoke();
         }
         public void Decrement(int cost)
         {
-            Coins -= cost;
-            PlayerPrefs.SetInt(Preferences.Coins, Coins);
+            SCD -= cost;
+            PlayerPrefs.SetInt(Preferences.Coins, SCD);
             OnValueChanged.Invoke();
         }
 
         public void Update()
         {
-            Coins = PlayerPrefs.GetInt(Preferences.Coins);
+            SCD = PlayerPrefs.GetInt(Preferences.Coins);
         }
     }
 }

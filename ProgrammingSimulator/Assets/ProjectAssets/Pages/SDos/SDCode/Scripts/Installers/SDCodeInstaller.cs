@@ -14,10 +14,11 @@ namespace ProjectAssets.Pages.SDos.SDCode.Scripts.Installers
         [SerializeField] private ScrollRect _scrolling;
         [SerializeField] private Button _buildButton;
         [SerializeField] private ProgressBar _progressBar;
-        
+        [SerializeField] private ModalWindowManager _doneCompilationWindow;
+
         public override void InstallBindings()
         {
-            Container.Bind<SDCodeModel>().FromInstance(new SDCodeModel(_code, _symbols, _scrolling, _buildButton, _progressBar)).AsSingle().NonLazy();
+            Container.Bind<SDCodeModel>().FromInstance(new SDCodeModel(_code, _symbols, _scrolling, _buildButton, _progressBar, _doneCompilationWindow)).AsSingle().NonLazy();
         }
     }
 }
