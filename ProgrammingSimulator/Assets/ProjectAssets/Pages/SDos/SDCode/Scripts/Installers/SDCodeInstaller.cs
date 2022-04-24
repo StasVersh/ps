@@ -18,7 +18,7 @@ namespace ProjectAssets.Pages.SDos.SDCode.Scripts.Installers
 
         public override void InstallBindings()
         {
-            Container.Bind<SDCodeModel>().FromInstance(new SDCodeModel(_code, _symbols, _scrolling, _buildButton, _progressBar, _doneCompilationWindow)).AsSingle().NonLazy();
+            Container.Bind<SDCodeModel>().FromInstance(new SDCodeModel(new SDCodeUI(_code, _symbols, _scrolling, _buildButton, _progressBar, _doneCompilationWindow))).AsSingle().NonLazy();
         }
     }
 }
