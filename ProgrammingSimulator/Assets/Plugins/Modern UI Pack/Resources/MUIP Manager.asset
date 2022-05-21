@@ -17,17 +17,17 @@ MonoBehaviour:
   editorHints: 0
   animatedIconColor: {r: 1, g: 1, b: 1, a: 1}
   contextBackgroundColor: {r: 0.21568628, g: 0.29411766, b: 0.37254903, a: 1}
-  buttonThemeType: 1
+  buttonThemeType: 0
   buttonFont: {fileID: 11400000, guid: 3445826b12e66dd4e8a5dcfc592bffa6, type: 2}
-  buttonFontSize: 18
+  buttonFontSize: 22.5
   buttonBorderColor: {r: 1, g: 1, b: 1, a: 1}
-  buttonFilledColor: {r: 0.58431375, g: 0.83137256, b: 0.21568628, a: 1}
+  buttonFilledColor: {r: 0.1764706, g: 0.25490198, b: 0.33333334, a: 1}
   buttonTextBasicColor: {r: 1, g: 1, b: 1, a: 1}
-  buttonTextColor: {r: 1, g: 1, b: 1, a: 1}
-  buttonTextHighlightedColor: {r: 0, g: 0, b: 0, a: 1}
+  buttonTextColor: {r: 0.37254903, g: 0.40784314, b: 0.4509804, a: 1}
+  buttonTextHighlightedColor: {r: 1, g: 1, b: 1, a: 1}
   buttonIconBasicColor: {r: 1, g: 1, b: 1, a: 1}
-  buttonIconColor: {r: 1, g: 1, b: 1, a: 1}
-  buttonIconHighlightedColor: {r: 0, g: 0, b: 0, a: 1}
+  buttonIconColor: {r: 0.37254903, g: 0.40784314, b: 0.4509804, a: 1}
+  buttonIconHighlightedColor: {r: 1, g: 1, b: 1, a: 1}
   dropdownItemFont: {fileID: 11400000, guid: 4bd810f1cbcb0f446a8f5a31453e243f, type: 2}
   dropdownItemFontSize: 22.5
   dropdownThemeType: 0
@@ -55,7 +55,7 @@ MonoBehaviour:
   modalWindowDescriptionColor: {r: 1, g: 1, b: 1, a: 1}
   modalWindowIconColor: {r: 1, g: 1, b: 1, a: 1}
   modalWindowBackgroundColor: {r: 0.1764706, g: 0.25490198, b: 0.33333334, a: 1}
-  modalWindowContentPanelColor: {r: 0, g: 0, b: 0, a: 0.39215687}
+  modalWindowContentPanelColor: {r: 1, g: 1, b: 1, a: 0.019607844}
   notificationTitleFont: {fileID: 11400000, guid: fa328c1ae3ffb6b4583cf371153b0be6, type: 2}
   notificationTitleFontSize: 22.5
   notificationDescriptionFont: {fileID: 11400000, guid: 2f17e8bb3967fe14093d5fec798fffd9, type: 2}
@@ -66,7 +66,7 @@ MonoBehaviour:
   notificationDescriptionColor: {r: 1, g: 1, b: 1, a: 1}
   notificationIconColor: {r: 1, g: 1, b: 1, a: 1}
   progressBarLabelFont: {fileID: 11400000, guid: 3445826b12e66dd4e8a5dcfc592bffa6, type: 2}
-  progressBarLabelFontSize: 18
+  progressBarLabelFontSize: 25
   progressBarColor: {r: 1, g: 1, b: 1, a: 1}
   progressBarBackgroundColor: {r: 1, g: 1, b: 1, a: 0.05882353}
   progressBarLoopBackgroundColor: {r: 1, g: 1, b: 1, a: 1}
