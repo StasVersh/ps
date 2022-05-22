@@ -66,7 +66,7 @@ MonoBehaviour:
   notificationDescriptionColor: {r: 1, g: 1, b: 1, a: 1}
   notificationIconColor: {r: 1, g: 1, b: 1, a: 1}
   progressBarLabelFont: {fileID: 11400000, guid: 3445826b12e66dd4e8a5dcfc592bffa6, type: 2}
-  progressBarLabelFontSize: 25
+  progressBarLabelFontSize: 18
   progressBarColor: {r: 1, g: 1, b: 1, a: 1}
   progressBarBackgroundColor: {r: 1, g: 1, b: 1, a: 0.05882353}
   progressBarLoopBackgroundColor: {r: 1, g: 1, b: 1, a: 1}
