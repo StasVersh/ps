@@ -1,4 +1,4 @@
-using ProjectAssets.Resources.Scripts.Enams;
+using ProjectAssets.Resources.Scripts.Enums;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;

@@ -1,4 +1,4 @@
-namespace ProjectAssets.Resources.Scripts.Enams
+namespace ProjectAssets.Resources.Scripts.Enums
 {
     public enum Scenes
     {

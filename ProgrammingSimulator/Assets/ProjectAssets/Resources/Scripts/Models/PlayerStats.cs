@@ -1,3 +1,4 @@
+using ProjectAssets.Resources.Scripts.Enums;
 using ProjectAssets.Resources.Scripts.Values;
 
 namespace ProjectAssets.Resources.Scripts.Models
@@ -6,6 +7,10 @@ namespace ProjectAssets.Resources.Scripts.Models
     {
         public int Scd { get; private set; }
         public int TypingSpeed { get; private set; }
+        public int ConversionPrice { get; private set; }
+        public int Symbols { get; private set; }
+        public Experience Experience { get; private set; }
+        public ProgramingLanguages ProgramingLanguage { get; private set; }
 
         public PlayerStats()
         {
@@ -23,7 +28,7 @@ namespace ProjectAssets.Resources.Scripts.Models
 
         public void WriteOffScd(int value)
         {
-            if(value > Scd) return;;
+            if(value > Scd) return;
             Scd -= value;
             Prefs.SetScd(Scd);
             EventHandler.PlayerPrefs.Invoke();
