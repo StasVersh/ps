@@ -1,5 +1,5 @@
 using ProjectAssets.Resources.Scripts.Enums;
-using ProjectAssets.Resources.Scripts.Values;
+using ProjectAssets.Resources.Scripts.Utilities;
 
 namespace ProjectAssets.Resources.Scripts.Models
 {
@@ -16,6 +16,10 @@ namespace ProjectAssets.Resources.Scripts.Models
         {
             Scd = Prefs.GetScd();
             TypingSpeed = Prefs.GetTypingSpeed();
+            ConversionPrice = Prefs.GetConversionPrice();
+            Symbols = Prefs.GetSymbols();
+            Experience = (Experience)Prefs.GetExperience();
+            ProgramingLanguage = (ProgramingLanguages)Prefs.GetProgramingLanguage();
             EventHandler.PlayerPrefs.Invoke();
         }
 
@@ -31,6 +35,48 @@ namespace ProjectAssets.Resources.Scripts.Models
             if(value > Scd) return;
             Scd -= value;
             Prefs.SetScd(Scd);
+            EventHandler.PlayerPrefs.Invoke();
+        }
+
+        public void IncreaseConversionPrice(int value)
+        {
+            ConversionPrice += value;
+            Prefs.SetConversionPrice(ConversionPrice);
+            EventHandler.PlayerPrefs.Invoke();
+        }
+        
+        public void IncreaseTypingSpeed(int value)
+        {
+            TypingSpeed += value;
+            Prefs.SetTypingSpeed(TypingSpeed);
+            EventHandler.PlayerPrefs.Invoke();
+        }
+        
+        public void IncreaseSymbolsByOne()
+        {
+            Symbols += 1;
+            Prefs.SetSymbols(Symbols);
+            EventHandler.PlayerPrefs.Invoke();
+        }
+        
+        public void ResetSymbols()
+        {
+            Symbols = 0;
+            Prefs.SetSymbols(Symbols);
+            EventHandler.PlayerPrefs.Invoke();
+        }
+        
+        public void IncreaseExperienceLevel()
+        {
+            Experience += 1;
+            Prefs.SetExperience((int)Experience);
+            EventHandler.PlayerPrefs.Invoke();
+        }
+        
+        public void IncreaseProgramingLanguages()
+        {
+            ProgramingLanguage += 1;
+            Prefs.SetProgramingLanguage((int)ProgramingLanguage);
             EventHandler.PlayerPrefs.Invoke();
         }
     }
