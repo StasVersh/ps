@@ -11,6 +11,7 @@ namespace ProjectAssets.Resources.Scripts.Models
         public int Symbols { get; private set; }
         public Experience Experience { get; private set; } 
         public ProgramingLanguages ProgramingLanguage { get; private set; }
+        public Process State { get; private set; }
 
         public PlayerStats()
         {
@@ -76,6 +77,12 @@ namespace ProjectAssets.Resources.Scripts.Models
         {
             ProgramingLanguage += 1;
             Prefs.SetProgramingLanguage((int)ProgramingLanguage);
+            EventHandler.PlayerPrefs.Invoke();
+        }
+
+        public void SetProcess(Process state)
+        {
+            State = state;
             EventHandler.PlayerPrefs.Invoke();
         }
     }

@@ -57,10 +57,10 @@ namespace ProjectAssets.Resources.Scripts.Controllers
             }
 
             if (UnityEngine.Input.GetKey(KeyCode.LeftShift) & UnityEngine.Input.GetKey(KeyCode.LeftControl) &
-                UnityEngine.Input.GetKey(KeyCode.LeftAlt) & UnityEngine.Input.GetKey(KeyCode.D))
+                UnityEngine.Input.GetKey(KeyCode.LeftAlt) & UnityEngine.Input.GetKey(KeyCode.Return))
             {
                 Prefs.ResetAllPrefs();
-                SceneManager.LoadSceneAsync(Scenes.BootMenu.ToString());
+                SceneManager.LoadScene(Scenes.BootMenu.ToString());
             }
         }
     }

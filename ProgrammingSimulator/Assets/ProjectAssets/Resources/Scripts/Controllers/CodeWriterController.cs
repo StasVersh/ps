@@ -18,6 +18,7 @@ namespace ProjectAssets.Resources.Scripts.Controllers
         private ScrollRect _scrollRect;
         private PlayerStats _playerStats;
         private List<char> _code = new List<char>();
+        private bool _isCoding;
 
         [Inject]
         private void Construct(Input input, CodeExamples codeExamples, PlayerStats playerStats)
@@ -32,12 +33,19 @@ namespace ProjectAssets.Resources.Scripts.Controllers
         {
             _text = GetComponent<TMP_Text>();
             _scrollRect = gameObject.transform.parent.parent.GetComponent<ScrollRect>();
-            _playerStats.IncreaseTypingSpeed(5);
+            EventHandler.CurrentApp.AddListener(CurrentWindowChanging);
         }
-        
-        
+
+        private void CurrentWindowChanging(App state)
+        {
+            _isCoding = state is App.SCode;
+        }
+
+
         private void UpdateText()
         {
+            if(!_isCoding) return;
+            if(_playerStats.State is Process.Building) return;
             if (_code.IsEmpty()) _code = GetNewCodeExample();
             var currentIndex = _playerStats.TypingSpeed;
             while (currentIndex > 0)

@@ -82,7 +82,7 @@ namespace ProjectAssets.Resources.Scripts.Utilities
         }
 
         #endregion
-
+    
         #region Resets
 
         public static void ResetAllPrefs()
