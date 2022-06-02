@@ -28,10 +28,11 @@ namespace ProjectAssets.Resources.Scripts.Controllers
         }
 
 
-        private void Start()
+        private void OnEnable()
         {
             _text = GetComponent<TMP_Text>();
             _scrollRect = gameObject.transform.parent.parent.GetComponent<ScrollRect>();
+            _playerStats.IncreaseTypingSpeed(5);
         }
         
         
@@ -45,6 +46,7 @@ namespace ProjectAssets.Resources.Scripts.Controllers
                 _code.RemoveAt(0);
                 if (_code.IsEmpty()) _code =  GetNewCodeExample();
                 if (_code.First() != ' ' && _code.First() != '\n') currentIndex--;
+                _playerStats.IncreaseSymbolsByOne();
                 _scrollRect.normalizedPosition = new Vector2(0, 0);
             }
         }

@@ -11,7 +11,7 @@ namespace ProjectAssets.Resources.Scripts.Controllers
         [SerializeField] private Scenes _currentScene;
         private Button _button;
 
-        private void Start()
+        private void OnEnable()
         {
             _button = GetComponent<Button>();
             _button.onClick.AddListener(OnClick);

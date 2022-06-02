@@ -1,6 +1,9 @@
 using System.Collections.Generic;
 using System.Linq;
+using ProjectAssets.Resources.Scripts.Enums;
+using ProjectAssets.Resources.Scripts.Utilities;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Zenject;
 using Input = ProjectAssets.Resources.Scripts.Models.Input;
 
@@ -51,6 +54,13 @@ namespace ProjectAssets.Resources.Scripts.Controllers
             foreach (var keyCode in _codeKeyCodes.Where(UnityEngine.Input.GetKeyDown))
             {
                 _input.Coding.Invoke();
+            }
+
+            if (UnityEngine.Input.GetKey(KeyCode.LeftShift) & UnityEngine.Input.GetKey(KeyCode.LeftControl) &
+                UnityEngine.Input.GetKey(KeyCode.LeftAlt) & UnityEngine.Input.GetKey(KeyCode.D))
+            {
+                Prefs.ResetAllPrefs();
+                SceneManager.LoadSceneAsync(Scenes.BootMenu.ToString());
             }
         }
     }

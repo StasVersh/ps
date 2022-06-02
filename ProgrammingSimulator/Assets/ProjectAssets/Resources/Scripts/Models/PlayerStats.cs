@@ -9,7 +9,7 @@ namespace ProjectAssets.Resources.Scripts.Models
         public int TypingSpeed { get; private set; }
         public int ConversionPrice { get; private set; }
         public int Symbols { get; private set; }
-        public Experience Experience { get; private set; }
+        public Experience Experience { get; private set; } 
         public ProgramingLanguages ProgramingLanguage { get; private set; }
 
         public PlayerStats()
@@ -20,7 +20,6 @@ namespace ProjectAssets.Resources.Scripts.Models
             Symbols = Prefs.GetSymbols();
             Experience = (Experience)Prefs.GetExperience();
             ProgramingLanguage = (ProgramingLanguages)Prefs.GetProgramingLanguage();
-            EventHandler.PlayerPrefs.Invoke();
         }
 
         public void AccrueScd(int value)

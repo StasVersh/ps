@@ -16,12 +16,12 @@ namespace ProjectAssets.Resources.Scripts.Controllers
         private void Construct(PlayerStats playerStats)
         {
             _playerStats = playerStats;
-            EventHandler.PlayerPrefs.AddListener(UpdateText);
         }
 
-        private void Start()
+        private void OnEnable()
         {
             _text = GetComponent<TMP_Text>();
+            EventHandler.PlayerPrefs.AddListener(UpdateText);
             UpdateText();
         }
         

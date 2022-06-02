@@ -9,7 +9,7 @@ namespace ProjectAssets.Resources.Scripts.Controllers
     {
         private TMP_Text _text;
 
-        private void Start()
+        private void OnEnable()
         {
             _text = GetComponent<TMP_Text>();
         }
