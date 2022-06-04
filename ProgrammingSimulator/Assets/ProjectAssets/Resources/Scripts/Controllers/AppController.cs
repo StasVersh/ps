@@ -15,11 +15,12 @@ namespace ProjectAssets.Resources.Scripts.Controllers
         {
             _windowManager = GetComponent<WindowManager>();
             _windowManager.onWindowChange.AddListener(OnWindowChange);
+            OnWindowChange(0);
         }
 
-        private void OnWindowChange(int arg0)
+        private void OnWindowChange(int window)
         {
-            switch (_windowManager.currentWindowIndex)  
+            switch (window)  
             {
                 case 0: 
                     EventHandler.CurrentApp.Invoke(App.SCode);

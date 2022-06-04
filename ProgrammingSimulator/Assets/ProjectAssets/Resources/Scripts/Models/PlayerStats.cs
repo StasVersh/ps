@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using System.Diagnostics;
 using ProjectAssets.Resources.Scripts.Enums;
 using ProjectAssets.Resources.Scripts.Utilities;
 
@@ -11,8 +13,8 @@ namespace ProjectAssets.Resources.Scripts.Models
         public int Symbols { get; private set; }
         public Experience Experience { get; private set; } 
         public ProgramingLanguages ProgramingLanguage { get; private set; }
-        public Process State { get; private set; }
-
+        public List<Task> Tasks { get; private set; }
+        
         public PlayerStats()
         {
             Scd = Prefs.GetScd();
@@ -21,6 +23,7 @@ namespace ProjectAssets.Resources.Scripts.Models
             Symbols = Prefs.GetSymbols();
             Experience = (Experience)Prefs.GetExperience();
             ProgramingLanguage = (ProgramingLanguages)Prefs.GetProgramingLanguage();
+            Tasks = new List<Task>();
         }
 
         public void AccrueScd(int value)
@@ -77,12 +80,6 @@ namespace ProjectAssets.Resources.Scripts.Models
         {
             ProgramingLanguage += 1;
             Prefs.SetProgramingLanguage((int)ProgramingLanguage);
-            EventHandler.PlayerPrefs.Invoke();
-        }
-
-        public void SetProcess(Process state)
-        {
-            State = state;
             EventHandler.PlayerPrefs.Invoke();
         }
     }

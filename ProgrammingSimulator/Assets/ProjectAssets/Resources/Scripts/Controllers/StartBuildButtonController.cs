@@ -1,3 +1,4 @@
+using System.Linq;
 using ProjectAssets.Resources.Scripts.Models;
 using UnityEngine;
 using UnityEngine.UI;
@@ -25,7 +26,10 @@ namespace ProjectAssets.Resources.Scripts.Controllers
 
         private void OnButtonClick()
         {
-            _playerStats.SetProcess(Process.Building);
+            _playerStats.Tasks.Add(new Building());
+            var task = _playerStats.Tasks.First();
+            task.End(_playerStats);
+            _playerStats.Tasks.Remove(task);
         }
     }
 }
