@@ -2,7 +2,9 @@ using System;
 using Michsky.UI.ModernUIPack;
 using ProjectAssets.Resources.Scripts.Models;
 using UnityEngine;
+using Zenject;
 using EventHandler = ProjectAssets.Resources.Scripts.Models.EventHandler;
+using Input = ProjectAssets.Resources.Scripts.Models.Input;
 
 namespace ProjectAssets.Resources.Scripts.Controllers
 {
@@ -10,6 +12,16 @@ namespace ProjectAssets.Resources.Scripts.Controllers
     public class AppController : MonoBehaviour
     {
         private WindowManager _windowManager;
+
+        [Inject]
+        private void Construct(Input input)
+        {
+            input.NextApp.AddListener(() =>
+            {
+                if(_windowManager.currentWindowIndex == _windowManager.windows.Count - 1) _windowManager.OpenWindowByIndex(0);
+                else _windowManager.NextWindow();
+            });
+        }
 
         private void OnEnable()
         {

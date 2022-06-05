@@ -61,6 +61,14 @@ namespace ProjectAssets.Resources.Scripts.Controllers
             {
                 _input.Build.Invoke();
             }
+            else if (UnityEngine.Input.GetKeyDown(KeyCode.Tab))
+            {
+                _input.NextApp.Invoke();
+            }
+            else if (UnityEngine.Input.GetKey(KeyCode.LeftControl) & UnityEngine.Input.GetKey(KeyCode.Tab))
+            {
+                _input.LastApp.Invoke();
+            }
             else
             {
                 foreach (var keyCode in _codeKeyCodes.Where(UnityEngine.Input.GetKeyDown))
