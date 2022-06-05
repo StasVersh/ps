@@ -45,6 +45,7 @@ namespace ProjectAssets.Resources.Scripts.Controllers
         private void UpdateText()
         {
             if(!_isCoding) return;
+            if(!_playerStats.Tasks.IsEmpty() && _playerStats.Tasks.First() is Building) return;
             if (_code.IsEmpty()) _code = GetNewCodeExample();
             var currentIndex = _playerStats.TypingSpeed;
             while (currentIndex > 0)

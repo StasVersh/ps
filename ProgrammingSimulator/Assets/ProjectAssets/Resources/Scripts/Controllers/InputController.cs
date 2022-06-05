@@ -51,16 +51,22 @@ namespace ProjectAssets.Resources.Scripts.Controllers
 
         private void Update()
         {
-            foreach (var keyCode in _codeKeyCodes.Where(UnityEngine.Input.GetKeyDown))
-            {
-                _input.Coding.Invoke();
-            }
-
             if (UnityEngine.Input.GetKey(KeyCode.LeftShift) & UnityEngine.Input.GetKey(KeyCode.LeftControl) &
                 UnityEngine.Input.GetKey(KeyCode.LeftAlt) & UnityEngine.Input.GetKey(KeyCode.Return))
             {
                 Prefs.ResetAllPrefs();
                 SceneManager.LoadScene(Scenes.BootMenu.ToString());
+            }
+            else if (UnityEngine.Input.GetKey(KeyCode.LeftShift) & UnityEngine.Input.GetKey(KeyCode.B))
+            {
+                _input.Build.Invoke();
+            }
+            else
+            {
+                foreach (var keyCode in _codeKeyCodes.Where(UnityEngine.Input.GetKeyDown))
+                {
+                    _input.Coding.Invoke();
+                }
             }
         }
     }

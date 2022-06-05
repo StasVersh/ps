@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Linq;
 using ProjectAssets.Resources.Scripts.Enums;
 using ProjectAssets.Resources.Scripts.Utilities;
 
@@ -80,6 +81,18 @@ namespace ProjectAssets.Resources.Scripts.Models
         {
             ProgramingLanguage += 1;
             Prefs.SetProgramingLanguage((int)ProgramingLanguage);
+            EventHandler.PlayerPrefs.Invoke();
+        }
+
+        public void AddTask(Task task)
+        {
+            Tasks.Add(task);
+            EventHandler.PlayerPrefs.Invoke();
+        }
+
+        public void RemoveTask()
+        {
+            Tasks.Remove(Tasks.First());
             EventHandler.PlayerPrefs.Invoke();
         }
     }
