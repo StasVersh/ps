@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f4ebb1322538a5088161d9f781bcf89, type: 3}
+  m_Name: BooksOnProgramming
+  m_EditorClassIdentifier: 
+  Level: 4
+  Header: Books on programming
+  Description: Books increase your programming skills, which in turn allows you to
+    write large amounts of code without errors on the build step
+  Coast: 2000
+  CoastScaling: 2.2
+  Action: 1
+  IsEnable: 0

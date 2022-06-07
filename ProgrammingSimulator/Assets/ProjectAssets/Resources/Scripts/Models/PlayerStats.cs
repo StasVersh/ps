@@ -34,12 +34,13 @@ namespace ProjectAssets.Resources.Scripts.Models
             EventHandler.PlayerPrefs.Invoke();
         }
 
-        public void WriteOffScd(int value)
+        public bool WriteOffScd(int value)
         {
-            if(value > Scd) return;
+            if(value > Scd) return false;
             Scd -= value;
             Prefs.SetScd(Scd);
             EventHandler.PlayerPrefs.Invoke();
+            return true;
         }
 
         public void IncreaseConversionPrice(int value)
