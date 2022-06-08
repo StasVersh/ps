@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f4ebb1322538a5088161d9f781bcf89, type: 3}
   m_Name: CourseOurSelfPrice
   m_EditorClassIdentifier: 
-  Level: 1
   Header: Course "Our self-price"
   Description: This course will help you know your price in the labor market, which
     will increase the price of your code
-  Coast: 10000
+  BaceCoast: 5000
   CoastScaling: 1.7
   Action: 2
   IsEnable: 0
+  Level: 1

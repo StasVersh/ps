@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f4ebb1322538a5088161d9f781bcf89, type: 3}
   m_Name: TypingSpeed
   m_EditorClassIdentifier: 
-  Level: 1
   Header: Blind typing
   Description: Increases the number of characters you type, which increases the speed
     of writing code
-  Coast: 500
-  CoastScaling: 1.5
+  BaceCoast: 312
+  CoastScaling: 1.6
   Action: 0
   IsEnable: 0
+  Level: 1

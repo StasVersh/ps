@@ -2,9 +2,9 @@ namespace ProjectAssets.Resources.Scripts.Models
 {
     public class Building : Task
     {
-        public Building()
+        public Building(int speed)
         {
-            Speed = 5;
+            Speed = speed;
             Name = "Building";
         }
         public override void End(PlayerStats playerStats)

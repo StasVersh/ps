@@ -33,7 +33,7 @@ namespace ProjectAssets.Resources.Scripts.Controllers
             {
                 canStart = !(task is Building);
             }
-            if(canStart && _playerStats.Symbols > 0) _playerStats.AddTask(new Building());
+            if(canStart && _playerStats.Symbols > 0) _playerStats.AddTask(new Building(_playerStats.BuildingSpeed));
         }
     }
 }

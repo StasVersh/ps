@@ -15,16 +15,19 @@ namespace ProjectAssets.Resources.Scripts.Controllers
         [SerializeField] private List<ListTile> ListTiles;
         
         private PlayerStats _playerStats;
+        private Store _store;
 
         [Inject]
-        private void Construct(PlayerStats playerStats)
+        private void Construct(PlayerStats playerStats, Store store)
         {
             _playerStats = playerStats;
+            _store = store;
         }
 
         private void Start()
         {
             EventHandler.PlayerPrefs.AddListener(UpdateList);
+            EventHandler.Store.AddListener(UpdateList);
             UpdateList();
         }
 
@@ -38,11 +41,12 @@ namespace ProjectAssets.Resources.Scripts.Controllers
             {
                 var tileObject = Instantiate(_listTilePrefab, transform.position, Quaternion.identity, transform);
                 var listTileController = tileObject.GetComponent<ListTileController>();
+                listTile.Level = _store.GetValueOnType(listTile.Action);
                 listTileController.Level.text = $"Lvl. {listTile.Level}";
                 listTileController.Header.text = listTile.Header;
                 listTileController.Description.text = listTile.Description;
-                listTileController.Coast.text = $"{listTile.Coast} SCD";
-                listTile.IsEnable = listTile.Coast <= _playerStats.Scd;
+                listTileController.Coast.text = $"{listTile.GetCoast()} SCD";
+                listTile.IsEnable = listTile.GetCoast() <= _playerStats.Scd;
                 listTileController.CoastButton.interactable = listTile.IsEnable;
                 listTileController.ListTileButton.interactable = listTile.IsEnable;
                 listTile.Bay = listTileController.CoastButton.onClick;
@@ -52,9 +56,7 @@ namespace ProjectAssets.Resources.Scripts.Controllers
     
         private void Baying(ListTile listTile)
         {
-            if (!_playerStats.WriteOffScd(listTile.Coast)) return;
-            listTile.Level++;
-            listTile.Coast = (int)Math.Round(listTile.Coast * listTile.CoastScaling);
+            if (!_playerStats.WriteOffScd(listTile.GetCoast())) return;
             Action(listTile.Action);
             UpdateList();
         }
@@ -65,12 +67,19 @@ namespace ProjectAssets.Resources.Scripts.Controllers
             {
                 case StorePoints.TypingSpeed:
                     _playerStats.IncreaseTypingSpeed(1);
+                    _store.IncreaseTypingSpeedLevel();
                     break;
                 case StorePoints.BookOnProgramming:
                     _playerStats.IncreaseExperienceLevel();
+                    _store.IncreaseBookOnProgrammingLevel();
                     break;
                 case StorePoints.CourseOurSelfPrice:
                     _playerStats.IncreaseConversionPrice(1);
+                    _store.IncreaseCourseOurSelfPriceLevel();
+                    break;
+                case StorePoints.NewProcessor:
+                    _playerStats.IncreaseBuildingSpeed();
+                    _store.IncreaseBuildingSpeedLevel();
                     break;
             }
         }

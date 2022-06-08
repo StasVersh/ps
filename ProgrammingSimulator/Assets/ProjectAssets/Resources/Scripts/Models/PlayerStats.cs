@@ -12,11 +12,17 @@ namespace ProjectAssets.Resources.Scripts.Models
         public int TypingSpeed { get; private set; }
         public int ConversionPrice { get; private set; }
         public int Symbols { get; private set; }
+        public int BuildingSpeed { get; private set; }
         public Experience Experience { get; private set; } 
         public ProgramingLanguages ProgramingLanguage { get; private set; }
         public List<Task> Tasks { get; private set; }
         
         public PlayerStats()
+        {
+            UpdateValuesOnPrefs();
+        }
+        
+        public void UpdateValuesOnPrefs()
         {
             Scd = Prefs.GetScd();
             TypingSpeed = Prefs.GetTypingSpeed();
@@ -24,6 +30,7 @@ namespace ProjectAssets.Resources.Scripts.Models
             Symbols = Prefs.GetSymbols();
             Experience = (Experience)Prefs.GetExperience();
             ProgramingLanguage = (ProgramingLanguages)Prefs.GetProgramingLanguage();
+            BuildingSpeed = Prefs.GetBuildingSpeed();
             Tasks = new List<Task>();
         }
 
@@ -82,6 +89,13 @@ namespace ProjectAssets.Resources.Scripts.Models
         {
             ProgramingLanguage += 1;
             Prefs.SetProgramingLanguage((int)ProgramingLanguage);
+            EventHandler.PlayerPrefs.Invoke();
+        }
+        
+        public void IncreaseBuildingSpeed()
+        {
+            BuildingSpeed += 5;
+            Prefs.SetBuildingSpeed((int)BuildingSpeed);
             EventHandler.PlayerPrefs.Invoke();
         }
 

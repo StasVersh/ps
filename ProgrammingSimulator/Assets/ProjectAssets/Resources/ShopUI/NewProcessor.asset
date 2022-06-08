@@ -10,13 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9f4ebb1322538a5088161d9f781bcf89, type: 3}
-  m_Name: BooksOnProgramming
+  m_Name: NewProcessor
   m_EditorClassIdentifier: 
-  Header: Books on programming
-  Description: Books increase your programming skills, which in turn allows you to
-    write large amounts of code without errors on the build step
-  BaceCoast: 1000
-  CoastScaling: 2
-  Action: 1
+  Header: Sava Core s12 NextGen
+  Description: The new processor will allow you to collect your projects fast
+  BaceCoast: 5
+  CoastScaling: 1
+  Action: 3
   IsEnable: 0
-  Level: 1
+  Level: 0
