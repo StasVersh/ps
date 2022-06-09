@@ -4,10 +4,10 @@ using UnityEngine;
 using Zenject;
 using EventHandler = ProjectAssets.Resources.Scripts.Models.EventHandler;
 
-namespace ProjectAssets.Resources.Scripts.Controllers
+namespace ProjectAssets.Resources.Scripts.Controllers.Viewers
 {
     [RequireComponent(typeof(TMP_Text))]
-    public class ScdViewController : MonoBehaviour
+    public class ConversionViewController : MonoBehaviour
     {
         private TMP_Text _text;
         private PlayerStats _playerStats;
@@ -27,7 +27,7 @@ namespace ProjectAssets.Resources.Scripts.Controllers
         
         private void UpdateText()
         {
-            _text.text = _playerStats.Scd + " SCD";
+            _text.text = 1 + "/" + _playerStats.ConversionPrice.ToString();
         }
     }
 }

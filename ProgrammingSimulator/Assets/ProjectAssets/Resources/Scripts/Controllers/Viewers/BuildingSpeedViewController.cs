@@ -4,10 +4,10 @@ using UnityEngine;
 using Zenject;
 using EventHandler = ProjectAssets.Resources.Scripts.Models.EventHandler;
 
-namespace ProjectAssets.Resources.Scripts.Controllers
+namespace ProjectAssets.Resources.Scripts.Controllers.Viewers
 {
     [RequireComponent(typeof(TMP_Text))]
-    public class ExperienceViewController : MonoBehaviour
+    public class BuildingSpeedViewController : MonoBehaviour
     {
         private TMP_Text _text;
         private PlayerStats _playerStats;
@@ -27,7 +27,7 @@ namespace ProjectAssets.Resources.Scripts.Controllers
         
         private void UpdateText()
         {
-            _text.text = _playerStats.Experience.ToString();
+            _text.text = (_playerStats.BuildingSpeed / 5).ToString();
         }
     }
 }

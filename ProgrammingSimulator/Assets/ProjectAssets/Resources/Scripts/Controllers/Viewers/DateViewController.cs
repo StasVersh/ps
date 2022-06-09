@@ -2,10 +2,10 @@ using System;
 using TMPro;
 using UnityEngine;
 
-namespace ProjectAssets.Resources.Scripts.Controllers
+namespace ProjectAssets.Resources.Scripts.Controllers.Viewers
 {
     [RequireComponent(typeof(TMP_Text))]
-    public class TimeViewController : MonoBehaviour
+    public class DateViewController : MonoBehaviour
     {
         private TMP_Text _text;
 
@@ -16,7 +16,7 @@ namespace ProjectAssets.Resources.Scripts.Controllers
 
         private void Update()
         {
-            _text.text = DateTime.Now.ToString("HH:mm:ss");
+            _text.text = DateTime.Now.ToString("dd/MM/yyyy");
         }
     }
 }

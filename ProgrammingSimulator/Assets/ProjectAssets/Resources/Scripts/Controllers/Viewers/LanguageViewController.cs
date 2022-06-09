@@ -4,10 +4,10 @@ using UnityEngine;
 using Zenject;
 using EventHandler = ProjectAssets.Resources.Scripts.Models.EventHandler;
 
-namespace ProjectAssets.Resources.Scripts.Controllers
+namespace ProjectAssets.Resources.Scripts.Controllers.Viewers
 {
     [RequireComponent(typeof(TMP_Text))]
-    public class TypingSpeedViewController : MonoBehaviour
+    public class LanguageViewController : MonoBehaviour
     {
         private TMP_Text _text;
         private PlayerStats _playerStats;
@@ -27,7 +27,7 @@ namespace ProjectAssets.Resources.Scripts.Controllers
         
         private void UpdateText()
         {
-            _text.text = _playerStats.TypingSpeed.ToString();
+            _text.text = _playerStats.ProgramingLanguage.ToString();
         }
     }
 }
