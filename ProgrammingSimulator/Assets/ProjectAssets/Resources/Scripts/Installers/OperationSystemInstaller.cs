@@ -3,11 +3,11 @@ using Zenject;
 
 namespace ProjectAssets.Resources.Scripts.Installers
 {
-    public class PlayerStatsInstaller : MonoInstaller
+    public class OperationSystemInstaller : MonoInstaller
     {
         public override void InstallBindings()
         {
-            Container.Bind<PlayerStats>().FromInstance(new PlayerStats()).AsSingle();
+            Container.Bind<OperationSystem>().FromInstance(new OperationSystem()).AsSingle();
         }
     }
 }

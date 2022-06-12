@@ -7451,7 +7451,6 @@ GameObject:
   m_Component:
   - component: {fileID: 784467876}
   - component: {fileID: 784467877}
-  - component: {fileID: 784467878}
   m_Layer: 0
   m_Name: Controllers
   m_TagString: Untagged
@@ -7484,18 +7483,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9b89b796152b173a39f4ccdba3e65577, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &784467878
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 784467875}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c62f7c31ad8841a1ac6376ba7e20f007, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &805645049
@@ -11052,7 +11039,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 3.7819824, y: -3.7809753}
+  m_AnchoredPosition: {x: 3.7819824, y: -3.7810059}
   m_SizeDelta: {x: -7.022, y: -7.564}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1139618838

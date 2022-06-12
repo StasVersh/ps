@@ -2,7 +2,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace ProjectAssets.Resources.Scripts.Controllers
+namespace ProjectAssets.Resources.Scripts.Controllers.StoreApp
 {
     public class ListTileController : MonoBehaviour
     {

@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using ProjectAssets.Resources.Scripts.Enums;
 using ProjectAssets.Resources.Scripts.Models;
@@ -7,26 +6,28 @@ using Zenject;
 using EventHandler = ProjectAssets.Resources.Scripts.Models.EventHandler;
 using ListTile = ProjectAssets.Resources.Scripts.Scriptable.ListTile;
 
-namespace ProjectAssets.Resources.Scripts.Controllers
+namespace ProjectAssets.Resources.Scripts.Controllers.StoreApp
 {
     public class StoreListViewController : MonoBehaviour
     {
         [SerializeField] private GameObject _listTilePrefab;
         [SerializeField] private List<ListTile> ListTiles;
         
-        private PlayerStats _playerStats;
+        private SCode _sCode;
         private Store _store;
+        private OperationSystem _os;
 
         [Inject]
-        private void Construct(PlayerStats playerStats, Store store)
+        private void Construct(SCode sCode, Store store, OperationSystem os)
         {
-            _playerStats = playerStats;
+            _sCode = sCode;
             _store = store;
+            _os = os;
         }
 
         private void Start()
         {
-            EventHandler.PlayerPrefs.AddListener(UpdateList);
+            EventHandler.SCode.AddListener(UpdateList);
             EventHandler.Store.AddListener(UpdateList);
             UpdateList();
         }
@@ -46,7 +47,7 @@ namespace ProjectAssets.Resources.Scripts.Controllers
                 listTileController.Header.text = listTile.Header;
                 listTileController.Description.text = listTile.Description;
                 listTileController.Coast.text = $"{listTile.GetCoast()} SCD";
-                listTile.IsEnable = listTile.GetCoast() <= _playerStats.Scd;
+                listTile.IsEnable = listTile.GetCoast() <= _os.Scd;
                 listTileController.CoastButton.interactable = listTile.IsEnable;
                 listTileController.ListTileButton.interactable = listTile.IsEnable;
                 listTile.Bay = listTileController.CoastButton.onClick;
@@ -56,7 +57,7 @@ namespace ProjectAssets.Resources.Scripts.Controllers
     
         private void Baying(ListTile listTile)
         {
-            if (!_playerStats.WriteOffScd(listTile.GetCoast())) return;
+            if (!_os.WriteOffScd(listTile.GetCoast())) return;
             Action(listTile.Action);
             UpdateList();
         }
@@ -66,19 +67,19 @@ namespace ProjectAssets.Resources.Scripts.Controllers
             switch (points)
             {
                 case StorePoints.TypingSpeed:
-                    _playerStats.IncreaseTypingSpeed(1);
+                    _sCode.IncreaseTypingSpeed(1);
                     _store.IncreaseTypingSpeedLevel();
                     break;
                 case StorePoints.BookOnProgramming:
-                    _playerStats.IncreaseExperienceLevel();
+                    _sCode.IncreaseExperienceLevel();
                     _store.IncreaseBookOnProgrammingLevel();
                     break;
                 case StorePoints.CourseOurSelfPrice:
-                    _playerStats.IncreaseConversionPrice(1);
+                    _sCode.IncreaseConversionPrice(1);
                     _store.IncreaseCourseOurSelfPriceLevel();
                     break;
                 case StorePoints.NewProcessor:
-                    _playerStats.IncreaseBuildingSpeed();
+                    _os.IncreaseBuildingSpeed();
                     _store.IncreaseBuildingSpeedLevel();
                     break;
             }

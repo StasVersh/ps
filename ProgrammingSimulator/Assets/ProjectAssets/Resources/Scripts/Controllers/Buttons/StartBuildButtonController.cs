@@ -5,19 +5,21 @@ using UnityEngine.UI;
 using Zenject;
 using Input = ProjectAssets.Resources.Scripts.Models.Input;
 
-namespace ProjectAssets.Resources.Scripts.Controllers
+namespace ProjectAssets.Resources.Scripts.Controllers.Buttons
 {
     [RequireComponent(typeof(Button))]
     public class StartBuildButtonController : MonoBehaviour
     {
         private Button _button;
-        private PlayerStats _playerStats;
+        private OperationSystem _os;
+        private SCode _sCode;
 
         [Inject]
-        private void Construct(PlayerStats playerStats, Input input)
+        private void Construct(OperationSystem os, Input input, SCode sCode)
         {
-            _playerStats = playerStats;
-            input.Build.AddListener(OnButtonClick);
+            _os = os;
+            _sCode = sCode;
+            input.Build.AddListener(OnButtonClick);    
         }
         
         private void OnEnable()
@@ -29,11 +31,12 @@ namespace ProjectAssets.Resources.Scripts.Controllers
         private void OnButtonClick()
         {
             var canStart = true;
-            foreach (var task in _playerStats.Tasks.Where(task => canStart))
+            foreach (var task in _os.Tasks.Where(task => canStart))
             {
                 canStart = !(task is Building);
             }
-            if(canStart && _playerStats.Symbols > 0) _playerStats.AddTask(new Building(_playerStats.BuildingSpeed));
+            if(canStart && _sCode.Symbols > 0) 
+                _os.AddTask(new Building(_os.BuildingSpeed, _sCode.Symbols, _sCode.ConversionPrice));
         }
     }
 }

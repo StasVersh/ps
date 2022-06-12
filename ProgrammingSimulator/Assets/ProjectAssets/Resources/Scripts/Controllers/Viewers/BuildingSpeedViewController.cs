@@ -10,24 +10,24 @@ namespace ProjectAssets.Resources.Scripts.Controllers.Viewers
     public class BuildingSpeedViewController : MonoBehaviour
     {
         private TMP_Text _text;
-        private PlayerStats _playerStats;
+        private OperationSystem _os;
 
         [Inject]
-        private void Construct(PlayerStats playerStats)
+        private void Construct(OperationSystem os)
         {
-            _playerStats = playerStats;
+            _os = os;
         }
 
         private void OnEnable()
         {
             _text = GetComponent<TMP_Text>();
-            EventHandler.PlayerPrefs.AddListener(UpdateText);
+            EventHandler.SCode.AddListener(UpdateText);
             UpdateText();
         }
         
         private void UpdateText()
         {
-            _text.text = (_playerStats.BuildingSpeed / 5).ToString();
+            _text.text = (_os.BuildingSpeed / 5).ToString();
         }
     }
 }

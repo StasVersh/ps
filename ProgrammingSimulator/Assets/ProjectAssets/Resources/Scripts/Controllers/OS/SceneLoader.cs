@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-namespace ProjectAssets.Resources.Scripts.Controllers
+namespace ProjectAssets.Resources.Scripts.Controllers.OS
 {
     [RequireComponent(typeof(Button))]
     public class SceneLoader : MonoBehaviour

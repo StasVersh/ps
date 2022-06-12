@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="ProjectAssets.Resources.Scripts.Controllers.CodeWriterController" Collapsed="true">
+    <Position X="4.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABgAAAAAEgAgAAAAgACAAAAAAAAAEAIAAAAAAAgCAA=</HashCode>
+      <FileName>Assets\ProjectAssets\Resources\Scripts\Controllers\CodeWriterController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProjectAssets.Resources.Scripts.Models.PlayerStats" Collapsed="true">
+    <Position X="6.75" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQRCIBCABBAQgAAAAgAAAAQAAEgAAAAAAoAAAQwAg=</HashCode>
+      <FileName>Assets\ProjectAssets\Resources\Scripts\Models\PlayerStats.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProjectAssets.Resources.Scripts.Models.Store" Collapsed="true">
+    <Position X="9" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAQAABBAAAAAAAAIAACAAAAAgAAQAAACAAAAACAAA=</HashCode>
+      <FileName>Assets\ProjectAssets\Resources\Scripts\Models\Store.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProjectAssets.Resources.Scripts.Models.Building" Collapsed="true">
+    <Position X="2.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\ProjectAssets\Resources\Scripts\Models\Building.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProjectAssets.Resources.Scripts.Models.Task" Collapsed="true">
+    <Position X="2.25" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAAAAAAAAAAAQBAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\ProjectAssets\Resources\Scripts\Models\Task.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProjectAssets.Resources.Scripts.Models.EventHandler" Collapsed="true">
+    <Position X="11.75" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIBAAAQAAAAA=</HashCode>
+      <FileName>Assets\ProjectAssets\Resources\Scripts\Models\EventHandler.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProjectAssets.Resources.Scripts.Models.Input" Collapsed="true">
+    <Position X="4.75" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAIABAAQAAAAAAAAAAAgAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\ProjectAssets\Resources\Scripts\Models\Input.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

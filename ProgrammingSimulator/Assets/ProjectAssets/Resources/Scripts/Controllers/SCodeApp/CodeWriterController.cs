@@ -8,23 +8,23 @@ using UnityEngine.UI;
 using Zenject;
 using Input = ProjectAssets.Resources.Scripts.Models.Input;
 
-namespace ProjectAssets.Resources.Scripts.Controllers
+namespace ProjectAssets.Resources.Scripts.Controllers.SCodeApp
 {
     [RequireComponent(typeof(TMP_Text))]
     public class CodeWriterController : MonoBehaviour
     {
         private TMP_Text _text;
-        private CodeExamples _codeExamples;
         private ScrollRect _scrollRect;
-        private PlayerStats _playerStats;
+        private SCode _sCode;
+        private OperationSystem _os;
         private List<char> _code = new List<char>();
         private bool _isCoding;
 
         [Inject]
-        private void Construct(Input input, CodeExamples codeExamples, PlayerStats playerStats)
+        private void Construct(Input input, SCode sCode, OperationSystem os)
         {
-            _codeExamples = codeExamples;
-            _playerStats = playerStats;
+            _sCode = sCode;
+            _os = os;
             input.Coding.AddListener(UpdateText);
         }
 
@@ -45,23 +45,23 @@ namespace ProjectAssets.Resources.Scripts.Controllers
         private void UpdateText()
         {
             if(!_isCoding) return;
-            if(!_playerStats.Tasks.IsEmpty() && _playerStats.Tasks.First() is Building) return;
+            if(!_os.Tasks.IsEmpty() && _os.Tasks.First() is Building) return;
             if (_code.IsEmpty()) _code = GetNewCodeExample();
-            var currentIndex = _playerStats.TypingSpeed;
+            var currentIndex = _sCode.TypingSpeed;
             while (currentIndex > 0)
             {
                 _text.text += _code.First();
                 _code.RemoveAt(0);
                 if (_code.IsEmpty()) _code =  GetNewCodeExample();
                 if (_code.First() != ' ' && _code.First() != '\n') currentIndex--;
-                _playerStats.IncreaseSymbolsByOne();
+                _sCode.IncreaseSymbolsByOne();
                 _scrollRect.normalizedPosition = new Vector2(0, 0);
             }
         }
 
         private List<char> GetNewCodeExample()
         {
-            return _codeExamples.BinaryCode[Random.Range(0, _codeExamples.BinaryCode.Count - 1)]
+            return _sCode.BinaryCode[Random.Range(0, _sCode.BinaryCode.Count - 1)]
                 .ToString()
                 .ToCharArray()
                 .ToList();

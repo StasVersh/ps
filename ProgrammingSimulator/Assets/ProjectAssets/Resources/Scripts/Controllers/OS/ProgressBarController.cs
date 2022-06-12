@@ -2,46 +2,45 @@ using System.Linq;
 using Michsky.UI.ModernUIPack;
 using ModestTree;
 using ProjectAssets.Resources.Scripts.Models;
-using Unity.VisualScripting;
 using UnityEngine;
 using Zenject;
 using EventHandler = ProjectAssets.Resources.Scripts.Models.EventHandler;
 
-namespace ProjectAssets.Resources.Scripts.Controllers
+namespace ProjectAssets.Resources.Scripts.Controllers.OS
 {
     public class ProgressBarController : MonoBehaviour
     {
         private ProgressBar _progressBar;
-        private PlayerStats _playerStats;
+        private OperationSystem _os;
 
         [Inject]
-        private void Construct(PlayerStats playerStats)
+        private void Construct(OperationSystem os)
         {
-            _playerStats = playerStats;
+            _os = os;
         }
 
         private void OnEnable()
         {
             _progressBar = GetComponent<ProgressBar>();
-            EventHandler.PlayerPrefs.AddListener(UpdateProgressBar);
+            EventHandler.SCode.AddListener(UpdateProgressBar);
         }
 
         public void OnProgressBarChanged(float value)
         {
             if (value < 100) return;
-            var task = _playerStats.Tasks.First();
-            task.End(_playerStats);
+            var task = _os.Tasks.First();
+            task.End(_os);
             _progressBar.currentPercent = 0;
             _progressBar.isOn = false;
             _progressBar.UpdateUI();
-            _playerStats.RemoveTask();
+            _os.RemoveTask();
         }
 
         private void UpdateProgressBar()
         {
             if(_progressBar.isOn) return;
-            if(_playerStats.Tasks.IsEmpty()) return;
-            var task = _playerStats.Tasks.First();
+            if(_os.Tasks.IsEmpty()) return;
+            var task = _os.Tasks.First();
             _progressBar.speed = task.Speed;
             _progressBar.prefix = task.Name + "... ";
             _progressBar.isOn = true;

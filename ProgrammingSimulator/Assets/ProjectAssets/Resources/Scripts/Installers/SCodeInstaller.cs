@@ -5,13 +5,13 @@ using Zenject;
 
 namespace ProjectAssets.Resources.Scripts.Installers
 {
-    public class CodeExamplesInstaller : MonoInstaller
+    public class SCodeInstaller : MonoInstaller
     {
         [SerializeField] private List<TextAsset> _binaryCode;
-        
+
         public override void InstallBindings()
         {
-            Container.Bind<CodeExamples>().FromInstance(new CodeExamples(_binaryCode)).AsSingle();
+            Container.Bind<SCode>().FromInstance(new SCode(_binaryCode)).AsSingle();
         }
     }
 }

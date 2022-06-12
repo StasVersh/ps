@@ -1,4 +1,3 @@
-using System;
 using Michsky.UI.ModernUIPack;
 using ProjectAssets.Resources.Scripts.Models;
 using UnityEngine;
@@ -6,7 +5,7 @@ using Zenject;
 using EventHandler = ProjectAssets.Resources.Scripts.Models.EventHandler;
 using Input = ProjectAssets.Resources.Scripts.Models.Input;
 
-namespace ProjectAssets.Resources.Scripts.Controllers
+namespace ProjectAssets.Resources.Scripts.Controllers.OS
 {
     [RequireComponent(typeof(WindowManager))]
     public class AppController : MonoBehaviour

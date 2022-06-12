@@ -8,6 +8,7 @@ namespace ProjectAssets.Resources.Scripts.Models
         public UnityEvent Build { get; }
         public UnityEvent NextApp { get; }
         public UnityEvent LastApp { get; }
+        public UnityEvent ResetAll { get; }
         
         public Input()
         {
@@ -15,6 +16,7 @@ namespace ProjectAssets.Resources.Scripts.Models
             Build = new UnityEvent();
             NextApp = new UnityEvent();
             LastApp = new UnityEvent();
+            ResetAll = new UnityEvent();
         }
     }
 }

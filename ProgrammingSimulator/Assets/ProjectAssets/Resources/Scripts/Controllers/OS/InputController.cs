@@ -1,13 +1,10 @@
 using System.Collections.Generic;
 using System.Linq;
-using ProjectAssets.Resources.Scripts.Enums;
-using ProjectAssets.Resources.Scripts.Utilities;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using Zenject;
 using Input = ProjectAssets.Resources.Scripts.Models.Input;
 
-namespace ProjectAssets.Resources.Scripts.Controllers
+namespace ProjectAssets.Resources.Scripts.Controllers.OS
 {
     public class InputController : MonoBehaviour
     {
@@ -54,8 +51,7 @@ namespace ProjectAssets.Resources.Scripts.Controllers
             if (UnityEngine.Input.GetKey(KeyCode.LeftShift) & UnityEngine.Input.GetKey(KeyCode.LeftControl) &
                 UnityEngine.Input.GetKey(KeyCode.LeftAlt) & UnityEngine.Input.GetKey(KeyCode.Return))
             {
-                Prefs.ResetAllPrefs();
-                SceneManager.LoadScene(Scenes.BootMenu.ToString());
+                _input.ResetAll.Invoke();
             }
             else if (UnityEngine.Input.GetKey(KeyCode.LeftShift) & UnityEngine.Input.GetKey(KeyCode.B))
             {

@@ -10,24 +10,24 @@ namespace ProjectAssets.Resources.Scripts.Controllers
     public class SymbolsViewController : MonoBehaviour
     {
         private TMP_Text _text;
-        private PlayerStats _playerStats;
+        private SCode _sCode;
 
         [Inject]
-        private void Construct(PlayerStats playerStats)
+        private void Construct(SCode sCode)
         {
-            _playerStats = playerStats;
+            _sCode = sCode;
         }
 
         private void OnEnable()
         {
             _text = GetComponent<TMP_Text>();
-            EventHandler.PlayerPrefs.AddListener(UpdateText);
+            EventHandler.SCode.AddListener(UpdateText);
             UpdateText();
         }
         
         private void UpdateText()
         {
-            _text.text = _playerStats.Symbols.ToString();
+            _text.text = _sCode.Symbols.ToString();
         }
     }
 }

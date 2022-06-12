@@ -4,7 +4,8 @@ namespace ProjectAssets.Resources.Scripts.Models
 {
     public static class EventHandler
     {
-        public static UnityEvent PlayerPrefs = new UnityEvent();
+        public static UnityEvent SCode = new UnityEvent();
+        public static UnityEvent OperationSystem = new UnityEvent();
         public static UnityEvent Store = new UnityEvent();
         public static UnityEvent<App> CurrentApp = new UnityEvent<App>();
     }

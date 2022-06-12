@@ -10,62 +10,40 @@ namespace ProjectAssets.Resources.Scripts.Models
         public int CourseOurSelfPriceLevel { get; private set; }
         public int BuildingSpeedLevel { get; private set; }
 
-        public Store()
-        {
-            UpdateValuesOnPrefs();
-        }
-
-        public void UpdateValuesOnPrefs()
-        {
-            TypingSpeedLevel = Prefs.GetTypingSpeedLevel();
-            BookOnProgrammingLevel = Prefs.GetBookOnProgrammingLevel();
-            CourseOurSelfPriceLevel = Prefs.GetCourseOurSelfPriceLevel();
-            BuildingSpeedLevel = Prefs.GetBuildingSpeedLevel();
-        }
-
         public void IncreaseTypingSpeedLevel()
         {
             TypingSpeedLevel += 1;
-            Prefs.SetTypingSpeedLevel(TypingSpeedLevel);
             EventHandler.Store.Invoke();
         }
         
         public void IncreaseBookOnProgrammingLevel()
         {
             BookOnProgrammingLevel += 1;
-            Prefs.SetBookOnProgrammingLevel(BookOnProgrammingLevel);
             EventHandler.Store.Invoke();
         }
         
         public void IncreaseCourseOurSelfPriceLevel()
         {
             CourseOurSelfPriceLevel += 1;
-            Prefs.SetCourseOurSelfPriceLevel(CourseOurSelfPriceLevel);
             EventHandler.Store.Invoke();
         }
         
         public void IncreaseBuildingSpeedLevel()
         {
             BuildingSpeedLevel += 1;
-            Prefs.SetBuildingSpeedLevel(BuildingSpeedLevel);
             EventHandler.Store.Invoke();
         }
 
         public int GetValueOnType(StorePoints storePoints)
         {
-            switch (storePoints)
+            return storePoints switch
             {
-                case StorePoints.TypingSpeed:
-                    return TypingSpeedLevel;
-                case StorePoints.BookOnProgramming:
-                    return BookOnProgrammingLevel;
-                case StorePoints.CourseOurSelfPrice:
-                    return CourseOurSelfPriceLevel;
-                case StorePoints.NewProcessor:
-                    return BuildingSpeedLevel;
-            }
-
-            return 1;
+                StorePoints.TypingSpeed => TypingSpeedLevel,
+                StorePoints.BookOnProgramming => BookOnProgrammingLevel,
+                StorePoints.CourseOurSelfPrice => CourseOurSelfPriceLevel,
+                StorePoints.NewProcessor => BuildingSpeedLevel,
+                _ => 1
+            };
         }
     }
 }

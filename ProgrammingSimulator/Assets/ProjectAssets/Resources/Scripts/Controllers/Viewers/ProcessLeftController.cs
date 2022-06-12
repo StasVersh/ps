@@ -9,24 +9,24 @@ namespace ProjectAssets.Resources.Scripts.Controllers
     public class ProcessLeftController : MonoBehaviour
     {
         private TMP_Text _text;
-        private PlayerStats _playerStats;
+        private OperationSystem _os;
 
         [Inject]
-        private void Construct(PlayerStats playerStats)
+        private void Construct(OperationSystem os)
         {
-            _playerStats = playerStats;
+            _os = os;
         }
 
         private void OnEnable()
         {
             _text = GetComponent<TMP_Text>();
-            EventHandler.PlayerPrefs.AddListener(UpdateText);
+            EventHandler.SCode.AddListener(UpdateText);
             UpdateText();
         }
         
         private void UpdateText()
         {
-            _text.text = _playerStats.Tasks.Count.ToString();
+            _text.text = _os.Tasks.Count.ToString();
         }
     }
 }
