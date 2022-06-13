@@ -5,11 +5,11 @@ using UnityEngine;
 
 namespace ProjectAssets.Resources.Scripts.Services
 {
-    public static class SCodeDataService
+    public static class StoreDataService
     {
-        private static readonly string _dataPath = Application.persistentDataPath + "/SCodeSave.json";
+        private static readonly string _dataPath = Application.persistentDataPath + "/StoreSave.json";
 
-        public static void SaveData(SCodeStruct @struct)
+        public static void SaveData(StoreStruct @struct)
         {
             var json = JsonUtility.ToJson(@struct);
             try
@@ -22,13 +22,13 @@ namespace ProjectAssets.Resources.Scripts.Services
             }
         }
 
-        public static SCodeStruct LoadData()
+        public static StoreStruct LoadData()
         {
             if (!File.Exists(_dataPath))
             {
                 var openFile = File.Create(_dataPath);
                 openFile.Close();
-                var @struct = new SCodeStruct();
+                var @struct = new StoreStruct();
                 @struct.SetDefault();
                 SaveData(@struct);
                 return @struct;
@@ -36,8 +36,8 @@ namespace ProjectAssets.Resources.Scripts.Services
             
             var json = File.ReadAllText(_dataPath);
             return string.IsNullOrEmpty(json) 
-                ? new SCodeStruct() : 
-                JsonUtility.FromJson<SCodeStruct>(json);
+                ? new StoreStruct() : 
+                JsonUtility.FromJson<StoreStruct>(json);
         }
     }
 }

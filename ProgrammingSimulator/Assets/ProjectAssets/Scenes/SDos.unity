@@ -11661,7 +11661,6 @@ GameObject:
   - component: {fileID: 1209168920}
   - component: {fileID: 1209168923}
   - component: {fileID: 1209168922}
-  - component: {fileID: 1209168921}
   m_Layer: 5
   m_Name: ListView
   m_TagString: Untagged
@@ -11698,18 +11697,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0.0041503906, y: -35.944}
   m_SizeDelta: {x: 682.92, y: 743.44}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1209168921
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1209168919}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 78b8cd3b907f4cc98f976cf83dd17815, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1209168922
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11717,7 +11704,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1209168919}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 66a367d67f0e417fba0503816e91afd5, type: 3}
   m_Name: 
@@ -15047,7 +15034,6 @@ GameObject:
   - component: {fileID: 1505815714}
   - component: {fileID: 1505815717}
   - component: {fileID: 1505815716}
-  - component: {fileID: 1505815715}
   m_Layer: 5
   m_Name: ListView
   m_TagString: Untagged
@@ -15084,18 +15070,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0.0041503906, y: -35.944}
   m_SizeDelta: {x: 682.92, y: 743.44}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1505815715
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1505815713}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 78b8cd3b907f4cc98f976cf83dd17815, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1505815716
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15103,7 +15077,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1505815713}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 66a367d67f0e417fba0503816e91afd5, type: 3}
   m_Name: 

@@ -1,5 +1,5 @@
 using ProjectAssets.Resources.Scripts.Enums;
-using ProjectAssets.Resources.Scripts.Utilities;
+using ProjectAssets.Resources.Scripts.Structures;
 
 namespace ProjectAssets.Resources.Scripts.Models
 {
@@ -18,6 +18,26 @@ namespace ProjectAssets.Resources.Scripts.Models
             BuildingSpeedLevel = 1;
         }
         
+        public void StructToModel(StoreStruct @struct)
+        {
+            TypingSpeedLevel = @struct.TypingSpeedLevel;
+            BookOnProgrammingLevel = @struct.BookOnProgrammingLevel;
+            CourseOurSelfPriceLevel = @struct.CourseOurSelfPriceLevel;
+            BuildingSpeedLevel = @struct.BuildingSpeedLevel;
+            EventHandler.Store.Invoke();
+        }
+        
+        public StoreStruct ModelToSruct()
+        {
+            return new StoreStruct
+            {
+                TypingSpeedLevel = TypingSpeedLevel,
+                BookOnProgrammingLevel = BookOnProgrammingLevel,
+                CourseOurSelfPriceLevel = CourseOurSelfPriceLevel,
+                BuildingSpeedLevel = BuildingSpeedLevel
+            };
+        }
+
         public void IncreaseTypingSpeedLevel()
         {
             TypingSpeedLevel += 1;

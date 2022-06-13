@@ -1,7 +1,7 @@
 ﻿using ProjectAssets.Resources.Scripts.Enums;
 using ProjectAssets.Resources.Scripts.Models;
+using ProjectAssets.Resources.Scripts.Services;
 using ProjectAssets.Resources.Scripts.Structures;
-using ProjectAssets.Resources.Scripts.Utilities;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Zenject;
@@ -27,20 +27,34 @@ namespace ProjectAssets.Resources.Scripts.Controllers.OS
         private void Start()
         {
             _input.ResetAll.AddListener(ResetAll);
+            
             _sCode.StructToModel(SCodeDataService.LoadData());
-            EventHandler.SCode.AddListener(Save);
+            EventHandler.SCode.AddListener(SaveSCode);
+
+            _store.StructToModel(StoreDataService.LoadData());
+            EventHandler.Store.AddListener(SaveStore);
         }
 
-        private void Save()
+        private void SaveStore()
+        {
+            StoreDataService.SaveData(_store.ModelToSruct());
+        }
+
+        private void SaveSCode()
         {
             SCodeDataService.SaveData(_sCode.ModelToSruct());
         }
 
         private void ResetAll()
         {
-            var @struct = new SCodeStruct();
-            @struct.SetDefault();
-            SCodeDataService.SaveData(@struct);
+            var @sCodeStruct = new SCodeStruct();
+            @sCodeStruct.SetDefault();
+            SCodeDataService.SaveData(@sCodeStruct);
+
+            var @storeStruct = new StoreStruct();
+            @storeStruct.SetDefault();
+            StoreDataService.SaveData(@storeStruct);
+            
             SceneManager.LoadScene(Scenes.BootMenu.ToString());
         }
     }

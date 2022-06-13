@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using ProjectAssets.Resources.Scripts.Controllers.StoreApp;
 using ProjectAssets.Resources.Scripts.Enums;
 using ProjectAssets.Resources.Scripts.Models;
 using ProjectAssets.Resources.Scripts.Utilities;
@@ -9,7 +8,7 @@ using Zenject;
 using EventHandler = ProjectAssets.Resources.Scripts.Models.EventHandler;
 using ListTile = ProjectAssets.Resources.Scripts.Scriptable.ListTile;
 
-namespace ProjectAssets.Resources.Scripts.Controllers
+namespace ProjectAssets.Resources.Scripts.Controllers.StoreApp
 {
     public class StoreListViewController : MonoBehaviour
     {
