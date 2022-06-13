@@ -5,11 +5,18 @@ namespace ProjectAssets.Resources.Scripts.Models
 {
     public class OperationSystem
     {
-        public int Scd { get; private set; }
+        public long Scd { get; private set; }
         public int BuildingSpeed { get; private set; }
-        public List<Task> Tasks { get; private set; }
+        public List<Task> Tasks { get; }
+
+        public OperationSystem()
+        {
+            Scd = 0;
+            BuildingSpeed = 5;
+            Tasks = new List<Task>();
+        }
         
-        public void AccrueScd(int value)
+        public void AccrueScd(long value)
         {
             Scd += value;
             EventHandler.OperationSystem.Invoke();

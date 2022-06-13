@@ -2,10 +2,10 @@ namespace ProjectAssets.Resources.Scripts.Models
 {
     public class Building : Task
     {
-        private int _symbols;
+        private long _symbols;
         private int _conversionPrice;
 
-        public Building(int speed, int symbols, int conversionPrice)
+        public Building(int speed, long symbols, int conversionPrice)
         {
             Speed = speed;
             _symbols = symbols;

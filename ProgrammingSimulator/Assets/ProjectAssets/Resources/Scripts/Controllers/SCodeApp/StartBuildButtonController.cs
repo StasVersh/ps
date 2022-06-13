@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using Zenject;
 using Input = ProjectAssets.Resources.Scripts.Models.Input;
 
-namespace ProjectAssets.Resources.Scripts.Controllers.Buttons
+namespace ProjectAssets.Resources.Scripts.Controllers.SCodeApp
 {
     [RequireComponent(typeof(Button))]
     public class StartBuildButtonController : MonoBehaviour
@@ -35,8 +35,12 @@ namespace ProjectAssets.Resources.Scripts.Controllers.Buttons
             {
                 canStart = !(task is Building);
             }
-            if(canStart && _sCode.Symbols > 0) 
+
+            if (canStart && _sCode.Symbols > 0)
+            {
                 _os.AddTask(new Building(_os.BuildingSpeed, _sCode.Symbols, _sCode.ConversionPrice));
+                _sCode.ResetSymbols();
+            }
         }
     }
 }

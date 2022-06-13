@@ -10,6 +10,14 @@ namespace ProjectAssets.Resources.Scripts.Models
         public int CourseOurSelfPriceLevel { get; private set; }
         public int BuildingSpeedLevel { get; private set; }
 
+        public Store()
+        {
+            TypingSpeedLevel = 1;
+            BookOnProgrammingLevel = 1;
+            CourseOurSelfPriceLevel = 1;
+            BuildingSpeedLevel = 1;
+        }
+        
         public void IncreaseTypingSpeedLevel()
         {
             TypingSpeedLevel += 1;

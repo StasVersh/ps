@@ -22,7 +22,7 @@ namespace ProjectAssets.Resources.Scripts.Controllers.OS
         private void OnEnable()
         {
             _progressBar = GetComponent<ProgressBar>();
-            EventHandler.SCode.AddListener(UpdateProgressBar);
+            EventHandler.OperationSystem.AddListener(UpdateProgressBar);
         }
 
         public void OnProgressBarChanged(float value)

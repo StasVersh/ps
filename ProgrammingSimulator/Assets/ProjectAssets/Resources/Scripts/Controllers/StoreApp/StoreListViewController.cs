@@ -1,12 +1,15 @@
+using System;
 using System.Collections.Generic;
+using ProjectAssets.Resources.Scripts.Controllers.StoreApp;
 using ProjectAssets.Resources.Scripts.Enums;
 using ProjectAssets.Resources.Scripts.Models;
+using ProjectAssets.Resources.Scripts.Utilities;
 using UnityEngine;
 using Zenject;
 using EventHandler = ProjectAssets.Resources.Scripts.Models.EventHandler;
 using ListTile = ProjectAssets.Resources.Scripts.Scriptable.ListTile;
 
-namespace ProjectAssets.Resources.Scripts.Controllers.StoreApp
+namespace ProjectAssets.Resources.Scripts.Controllers
 {
     public class StoreListViewController : MonoBehaviour
     {
@@ -27,7 +30,7 @@ namespace ProjectAssets.Resources.Scripts.Controllers.StoreApp
 
         private void Start()
         {
-            EventHandler.SCode.AddListener(UpdateList);
+            EventHandler.OperationSystem.AddListener(UpdateList);
             EventHandler.Store.AddListener(UpdateList);
             UpdateList();
         }
@@ -46,7 +49,7 @@ namespace ProjectAssets.Resources.Scripts.Controllers.StoreApp
                 listTileController.Level.text = $"Lvl. {listTile.Level}";
                 listTileController.Header.text = listTile.Header;
                 listTileController.Description.text = listTile.Description;
-                listTileController.Coast.text = $"{listTile.GetCoast()} SCD";
+                listTileController.Coast.text = $"{CoinsConvertor.ToMinString(listTile.GetCoast())} SCD";
                 listTile.IsEnable = listTile.GetCoast() <= _os.Scd;
                 listTileController.CoastButton.interactable = listTile.IsEnable;
                 listTileController.ListTileButton.interactable = listTile.IsEnable;
@@ -82,6 +85,8 @@ namespace ProjectAssets.Resources.Scripts.Controllers.StoreApp
                     _os.IncreaseBuildingSpeed();
                     _store.IncreaseBuildingSpeedLevel();
                     break;
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(points), points, null);
             }
         }
     }

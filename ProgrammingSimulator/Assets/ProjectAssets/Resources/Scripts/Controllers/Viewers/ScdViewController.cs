@@ -1,4 +1,5 @@
 using ProjectAssets.Resources.Scripts.Models;
+using ProjectAssets.Resources.Scripts.Utilities;
 using TMPro;
 using UnityEngine;
 using Zenject;
@@ -21,13 +22,13 @@ namespace ProjectAssets.Resources.Scripts.Controllers.Viewers
         private void OnEnable()
         {
             _text = GetComponent<TMP_Text>();
-            EventHandler.SCode.AddListener(UpdateText);
+            EventHandler.OperationSystem.AddListener(UpdateText);
             UpdateText();
         }
         
         private void UpdateText()
         {
-            _text.text = _os.Scd + " SCD";
+            _text.text = CoinsConvertor.ToMinString(_os.Scd) + " SCD";
         }
     }
 }

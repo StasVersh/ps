@@ -15,7 +15,7 @@ MonoBehaviour:
   Header: Blind typing
   Description: Increases the number of characters you type, which increases the speed
     of writing code
-  BaceCoast: 312
+  BaceCoast: 0
   CoastScaling: 1.6
   Action: 0
   IsEnable: 0

@@ -1,9 +1,11 @@
 ﻿using ProjectAssets.Resources.Scripts.Enums;
 using ProjectAssets.Resources.Scripts.Models;
+using ProjectAssets.Resources.Scripts.Structures;
 using ProjectAssets.Resources.Scripts.Utilities;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Zenject;
+using EventHandler = ProjectAssets.Resources.Scripts.Models.EventHandler;
 using Input = ProjectAssets.Resources.Scripts.Models.Input;
 
 namespace ProjectAssets.Resources.Scripts.Controllers.OS
@@ -25,18 +27,20 @@ namespace ProjectAssets.Resources.Scripts.Controllers.OS
         private void Start()
         {
             _input.ResetAll.AddListener(ResetAll);
-            _sCode = PlayerStatsDataService.LoadData();
+            _sCode.StructToModel(SCodeDataService.LoadData());
             EventHandler.SCode.AddListener(Save);
         }
 
         private void Save()
         {
-            PlayerStatsDataService.SaveData(_sCode);
+            SCodeDataService.SaveData(_sCode.ModelToSruct());
         }
 
         private void ResetAll()
         {
-            PlayerStatsDataService.SaveData(new SCode(null));
+            var @struct = new SCodeStruct();
+            @struct.SetDefault();
+            SCodeDataService.SaveData(@struct);
             SceneManager.LoadScene(Scenes.BootMenu.ToString());
         }
     }

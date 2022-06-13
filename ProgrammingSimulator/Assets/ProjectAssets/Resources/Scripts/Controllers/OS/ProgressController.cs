@@ -22,7 +22,7 @@ namespace ProjectAssets.Resources.Scripts.Controllers.OS
         {
             _progressBar = transform.Find(Views.ProgressBar.ToString()).Find(Views.Content.ToString()).gameObject;
             _noProgress = transform.Find(Views.Label.ToString()).gameObject;
-            EventHandler.SCode.AddListener(UpdateProgress);
+            EventHandler.OperationSystem.AddListener(UpdateProgress);
         }
 
         private void UpdateProgress()

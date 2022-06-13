@@ -10,7 +10,7 @@ namespace ProjectAssets.Resources.Scripts.Controllers.OS
     {
         private Input _input;
 
-        private readonly List<KeyCode> _codeKeyCodes = new List<KeyCode>()
+        private readonly List<KeyCode> _codeKeyCodes = new List<KeyCode>
         {
             KeyCode.A,
             KeyCode.B,
@@ -67,7 +67,7 @@ namespace ProjectAssets.Resources.Scripts.Controllers.OS
             }
             else
             {
-                foreach (var keyCode in _codeKeyCodes.Where(UnityEngine.Input.GetKeyDown))
+                foreach (var unused in _codeKeyCodes.Where(UnityEngine.Input.GetKeyDown))
                 {
                     _input.Coding.Invoke();
                 }
