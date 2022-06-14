@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using ProjectAssets.Resources.Scripts.Structures;
 
 namespace ProjectAssets.Resources.Scripts.Models
 {
@@ -7,13 +8,29 @@ namespace ProjectAssets.Resources.Scripts.Models
     {
         public long Scd { get; private set; }
         public int BuildingSpeed { get; private set; }
-        public List<Task> Tasks { get; }
+        public List<Task> Tasks { get; private set; }
 
         public OperationSystem()
         {
             Scd = 0;
             BuildingSpeed = 5;
             Tasks = new List<Task>();
+        }
+        
+        public void StructToModel(OperationSystemStruct @struct)
+        {
+            Scd = @struct.Scd;
+            BuildingSpeed = @struct.BuildingSpeed;
+            EventHandler.OperationSystem.Invoke();
+        }
+        
+        public OperationSystemStruct ModelToSruct()
+        {
+            return new OperationSystemStruct
+            {
+                Scd = Scd,
+                BuildingSpeed = BuildingSpeed,
+            };
         }
         
         public void AccrueScd(long value)

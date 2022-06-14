@@ -23,7 +23,6 @@ namespace ProjectAssets.Resources.Scripts.Controllers.Viewers
         {
             _text = GetComponent<TMP_Text>();
             EventHandler.OperationSystem.AddListener(UpdateText);
-            UpdateText();
         }
         
         private void UpdateText()

@@ -15,12 +15,14 @@ namespace ProjectAssets.Resources.Scripts.Controllers.OS
         private SCode _sCode;
         private Store _store;
         private Input _input;
+        private OperationSystem _os;
 
         [Inject]
-        private void Construct(SCode sCode, Store store, Input input)
+        private void Construct(SCode sCode, Store store, OperationSystem os, Input input)
         {
             _sCode = sCode;
             _store = store;
+            _os = os;
             _input = input;
         }
 
@@ -33,6 +35,15 @@ namespace ProjectAssets.Resources.Scripts.Controllers.OS
 
             _store.StructToModel(StoreDataService.LoadData());
             EventHandler.Store.AddListener(SaveStore);
+            
+            _os.StructToModel(OperationSystemDataService.LoadData());
+            EventHandler.OperationSystem.AddListener(SaveOperationSystem);
+        }
+
+        private void SaveOperationSystem()
+        {
+            OperationSystemDataService.SaveData(_os.ModelToSruct());
+
         }
 
         private void SaveStore()
@@ -54,6 +65,10 @@ namespace ProjectAssets.Resources.Scripts.Controllers.OS
             var @storeStruct = new StoreStruct();
             @storeStruct.SetDefault();
             StoreDataService.SaveData(@storeStruct);
+            
+            var @operationSystemStruct = new OperationSystemStruct();
+            @operationSystemStruct.SetDefault();
+            OperationSystemDataService.SaveData(@operationSystemStruct);
             
             SceneManager.LoadScene(Scenes.BootMenu.ToString());
         }
