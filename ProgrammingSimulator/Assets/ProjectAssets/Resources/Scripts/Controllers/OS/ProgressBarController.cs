@@ -33,7 +33,8 @@ namespace ProjectAssets.Resources.Scripts.Controllers.OS
             _progressBar.currentPercent = 0;
             _progressBar.isOn = false;
             _progressBar.UpdateUI();
-            _os.RemoveTask();
+            if (task is Building building) EventHandler.BuildingEnd.Invoke(building);
+                _os.RemoveTask();
         }
 
         private void UpdateProgressBar()

@@ -8,5 +8,6 @@ namespace ProjectAssets.Resources.Scripts.Models
         public static UnityEvent OperationSystem = new UnityEvent();
         public static UnityEvent Store = new UnityEvent();
         public static UnityEvent<App> CurrentApp = new UnityEvent<App>();
+        public static UnityEvent<Building> BuildingEnd = new UnityEvent<Building>();
     }
 }

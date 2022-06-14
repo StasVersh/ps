@@ -2,20 +2,20 @@ namespace ProjectAssets.Resources.Scripts.Models
 {
     public class Building : Task
     {
-        private long _symbols;
-        private int _conversionPrice;
+        public long Symbols;
+        public int ConversionPrice;
 
         public Building(int speed, long symbols, int conversionPrice)
         {
             Speed = speed;
-            _symbols = symbols;
-            _conversionPrice = conversionPrice;
+            Symbols = symbols;
+            ConversionPrice = conversionPrice;
             Name = "Building";
         }
 
         public override void End(OperationSystem os)
         {
-            os.AccrueScd(_symbols * _conversionPrice);
+            os.AccrueScd(Symbols * ConversionPrice);
         }
     }
 }
