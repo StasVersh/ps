@@ -10,8 +10,11 @@ namespace ProjectAssets.Resources.Scripts.Models
     {
         public int TypingSpeed { get; private set; }
         public int ConversionPrice { get; private set; }
-        public long Symbols { get; private set; }
-        public int GuaranteedCode { get; private set; }    
+
+        public int Symbols  { get; private set; }
+        public int GuaranteedCode  { get; private set; }
+
+        public float Probability { get; private set; }    
         public Experience Experience { get; private set; } 
         public ProgramingLanguages ProgramingLanguage { get; private set; }
         public List<TextAsset> BinaryCode { get; }
@@ -21,10 +24,12 @@ namespace ProjectAssets.Resources.Scripts.Models
             TypingSpeed = 1;
             ConversionPrice = 1;
             Symbols = 0;
-            GuaranteedCode = 250;
             Experience = 0;
             ProgramingLanguage = 0;
+            UpdateGuaranteedCode();
+            UpdateProbability();
             BinaryCode = binaryCode;
+            UpdateProbability();
         }
 
         public void StructToModel(SCodeStruct @struct)
@@ -32,9 +37,10 @@ namespace ProjectAssets.Resources.Scripts.Models
             TypingSpeed = @struct.TypingSpeed;
             ConversionPrice = @struct.ConversionPrice;
             Symbols = @struct.Symbols;
-            GuaranteedCode = @struct.GuaranteedCode;    
             Experience = (Experience)@struct.Experience;
             ProgramingLanguage = (ProgramingLanguages)@struct.ProgramingLanguage;
+            UpdateProbability();
+            UpdateGuaranteedCode();
             EventHandler.SCode.Invoke();
         }
         
@@ -45,7 +51,6 @@ namespace ProjectAssets.Resources.Scripts.Models
                 TypingSpeed = TypingSpeed,
                 ConversionPrice = ConversionPrice,
                 Symbols = Symbols,
-                GuaranteedCode = GuaranteedCode,
                 Experience = (int)Experience,
                 ProgramingLanguage = (int)ProgramingLanguage
             };
@@ -66,18 +71,21 @@ namespace ProjectAssets.Resources.Scripts.Models
         public void IncreaseSymbolsByOne()
         {
             Symbols += 1;
+            UpdateProbability();
             EventHandler.SCode.Invoke();
         }
         
         public void ResetSymbols()
         {
             Symbols = 0;
+            UpdateProbability();
             EventHandler.SCode.Invoke();
         }
         
         public void IncreaseExperienceLevel()
         {
             Experience += 1;
+            UpdateGuaranteedCode();
             EventHandler.SCode.Invoke();
         }
         
@@ -87,10 +95,15 @@ namespace ProjectAssets.Resources.Scripts.Models
             EventHandler.SCode.Invoke();
         }
 
-        public void IncreaseGuaranteedCode()
+        private void UpdateGuaranteedCode()
         {
-            GuaranteedCode = (int)Math.Round(GuaranteedCode * 1.5);
-            EventHandler.SCode.Invoke();
+            GuaranteedCode = (int)Math.Round(400 * ((int)Experience + 1) * 1.5);
+        }
+
+        private void UpdateProbability()
+        {
+            var probability = (float)GuaranteedCode / Symbols;
+            Probability = probability > 1 ? 1 : probability;
         }
     }
 }

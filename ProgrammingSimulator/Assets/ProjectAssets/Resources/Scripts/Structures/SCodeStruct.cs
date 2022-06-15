@@ -7,8 +7,7 @@ namespace ProjectAssets.Resources.Scripts.Structures
     {
         public int TypingSpeed;
         public int ConversionPrice;
-        public long Symbols;
-        public int GuaranteedCode;
+        public int Symbols;
         public int Experience;
         public int ProgramingLanguage;
 
@@ -17,7 +16,6 @@ namespace ProjectAssets.Resources.Scripts.Structures
             TypingSpeed = 1;
             ConversionPrice = 1;
             Symbols = 0;
-            GuaranteedCode = 250;
             Experience = 0;
             ProgramingLanguage = 0;
         }
