@@ -8,6 +8,7 @@ using EventHandler = ProjectAssets.Resources.Scripts.Models.EventHandler;
 
 namespace ProjectAssets.Resources.Scripts.Controllers.OS
 {
+    [RequireComponent(typeof(ProgressBar))]
     public class ProgressBarController : MonoBehaviour
     {
         private ProgressBar _progressBar;

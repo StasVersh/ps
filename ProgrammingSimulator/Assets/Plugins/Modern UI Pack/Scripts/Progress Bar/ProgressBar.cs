@@ -12,7 +12,7 @@ namespace Michsky.UI.ModernUIPack
         [Range(0, 100)] public int speed;
         public float minValue = 0;
         public float maxValue = 100;
-        public float valueLimit = 100;
+        public float valueLimit = 100000;
 
         // Resources
         public Image loadingBar;

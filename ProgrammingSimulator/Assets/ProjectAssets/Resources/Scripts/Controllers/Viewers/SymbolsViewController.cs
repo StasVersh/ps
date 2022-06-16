@@ -27,7 +27,7 @@ namespace ProjectAssets.Resources.Scripts.Controllers
         
         private void UpdateText()
         {
-            _text.text = _sCode.Symbols.ToString();
+            _text.text = _sCode.Symbols.ToString() + " symbols";
         }
     }
 }
