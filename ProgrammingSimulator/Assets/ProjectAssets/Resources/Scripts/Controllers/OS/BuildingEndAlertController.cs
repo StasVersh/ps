@@ -17,7 +17,7 @@ namespace ProjectAssets.Resources.Scripts.Controllers.OS
 
         private void BuildingEnd(Building building)
         {
-            if (building.Probebility >= 1) ShowGuaranteedSuccessfullyDialog(building);
+            if (building.Probability >= 1) ShowGuaranteedSuccessfullyDialog(building);
             else if (building.IsSuccessfully) ShowSuccessfullyDialog(building);
             else ShowFailDialog(building);
         }
@@ -28,7 +28,7 @@ namespace ProjectAssets.Resources.Scripts.Controllers.OS
             _modalWindow.titleText = "Fail";
             _modalWindow.descriptionText =
                 "You took a chance, but your gut let you down. Everything will have to be rewritten. " +
-                $"The probability of success was {Mathf.Round(building.Probebility * 100)}%. ";
+                $"The probability of success was {Mathf.Round(building.Probability * 100)}%. ";
             _modalWindow.OpenWindow();
             _modalWindow.UpdateUI();
         }
@@ -38,7 +38,7 @@ namespace ProjectAssets.Resources.Scripts.Controllers.OS
             if (_modalWindow == null) return;
             _modalWindow.titleText = "Successfully";
             _modalWindow.descriptionText = "You took a chance, your gut didn't let you down. " +
-                                           $"The probability of success was {Mathf.Round(building.Probebility * 100)}%. " +
+                                           $"The probability of success was {Mathf.Round(building.Probability * 100)}%. " +
                                            $"You have earned an {CoinsConvertor.ToMinString(building.Symbols * building.ConversionPrice)} SCD";
             _modalWindow.OpenWindow();
             _modalWindow.UpdateUI();

@@ -8,13 +8,13 @@ namespace ProjectAssets.Resources.Scripts.Models
     {
         public long Scd { get; private set; }
         public int BuildingSpeed { get; private set; }
-        public List<Task> Tasks { get; private set; }
+        public List<ITask> Tasks { get; private set; }
 
         public OperationSystem()
         {
             Scd = 0;
             BuildingSpeed = 5;
-            Tasks = new List<Task>();
+            Tasks = new List<ITask>();
         }
         
         public void StructToModel(OperationSystemStruct @struct)
@@ -47,7 +47,7 @@ namespace ProjectAssets.Resources.Scripts.Models
             return true;
         }
         
-        public void AddTask(Task task)
+        public void AddTask(ITask task)
         {
             Tasks.Add(task);
             EventHandler.OperationSystem.Invoke();

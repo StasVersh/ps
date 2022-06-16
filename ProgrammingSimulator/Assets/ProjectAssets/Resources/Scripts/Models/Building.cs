@@ -1,23 +1,25 @@
 namespace ProjectAssets.Resources.Scripts.Models
 {
-    public class Building : Task
+    public class Building : ITask
     {
-        public long Symbols;
-        public int ConversionPrice;
-        public float Probebility;
-        public bool IsSuccessfully;
+        public string Name { get; set; }
+        public int Speed { get; set; }
+        public long Symbols { get; }
+        public int ConversionPrice { get; }
+        public float Probability { get; }
+        public bool IsSuccessfully { get; }
 
-        public Building(int speed, long symbols, int conversionPrice, float probebility, bool isSuccessfully)
+        public Building(int speed, long symbols, int conversionPrice, float probability, bool isSuccessfully)
         {
             Speed = speed;
             Symbols = symbols;
             ConversionPrice = conversionPrice;
-            Probebility = probebility;
+            Probability = probability;
             IsSuccessfully = isSuccessfully;
             Name = "Building";
         }
 
-        public override void End(OperationSystem os)
+        public void End(OperationSystem os)
         {
             os.AccrueScd(Symbols * ConversionPrice);
         }
