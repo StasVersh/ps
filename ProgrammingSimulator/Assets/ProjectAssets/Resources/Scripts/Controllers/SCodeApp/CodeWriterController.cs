@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using ModestTree;
@@ -6,7 +7,9 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
+using EventHandler = ProjectAssets.Resources.Scripts.Models.EventHandler;
 using Input = ProjectAssets.Resources.Scripts.Models.Input;
+using Random = UnityEngine.Random;
 
 namespace ProjectAssets.Resources.Scripts.Controllers.SCodeApp
 {
@@ -34,6 +37,12 @@ namespace ProjectAssets.Resources.Scripts.Controllers.SCodeApp
             _text = GetComponent<TMP_Text>();
             _scrollRect = gameObject.transform.parent.parent.GetComponent<ScrollRect>();
             EventHandler.CurrentApp.AddListener(CurrentWindowChanging);
+        }
+
+        private void Start()
+        {
+            _text.text = _sCode.BinaryCode[Random.Range(0, _sCode.BinaryCode.Count - 1)].ToString();
+            _scrollRect.normalizedPosition = new Vector2(0, 0);
         }
 
         private void CurrentWindowChanging(App state)
