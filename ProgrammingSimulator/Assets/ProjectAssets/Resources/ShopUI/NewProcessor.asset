@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Header: Sava Core s12 NextGen
   Description: The new processor will allow you to collect your projects fast
-  BaceCoast: 0
-  CoastScaling: 1
+  BaceCoast: 1000
+  CoastScaling: 1.5
   Action: 3
   IsEnable: 1
   Level: 5

@@ -21,7 +21,7 @@ namespace ProjectAssets.Resources.Scripts.Models
 
         public void End(OperationSystem os)
         {
-            os.AccrueScd(Symbols * ConversionPrice);
+            if(IsSuccessfully) os.AccrueScd(Symbols * ConversionPrice);
         }
     }
 }

@@ -15,8 +15,8 @@ MonoBehaviour:
   Header: Course "Our self-price"
   Description: This course will help you know your price in the labor market, which
     will increase the price of your code
-  BaceCoast: 0
-  CoastScaling: 1.7
+  BaceCoast: 5000
+  CoastScaling: 1.5
   Action: 2
-  IsEnable: 0
+  IsEnable: 1
   Level: 1
