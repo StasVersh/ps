@@ -52,8 +52,8 @@ namespace ProjectAssets.Resources.Scripts.Controllers.StoreApp
                 listTile.IsEnable = listTile.GetCoast() <= _os.Scd;
                 listTileController.CoastButton.interactable = listTile.IsEnable;
                 listTileController.ListTileButton.interactable = listTile.IsEnable;
-                listTile.Bay = listTileController.CoastButton.onClick;
-                listTile.Bay.AddListener(() => {Baying(listTile);});
+                listTile.OnBuying = listTileController.CoastButton.onClick;
+                listTile.OnBuying.AddListener(() => {Baying(listTile);});
             }
         }
     

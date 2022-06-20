@@ -1,4 +1,6 @@
-namespace ProjectAssets.Resources.Scripts.Models
+using ProjectAssets.Resources.Scripts.Models;
+
+namespace ProjectAssets.Resources.Scripts.Interfacese
 {
     public interface ITask
     {

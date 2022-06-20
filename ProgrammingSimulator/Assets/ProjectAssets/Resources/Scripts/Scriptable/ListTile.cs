@@ -1,12 +1,14 @@
 using System;
 using ProjectAssets.Resources.Scripts.Enums;
+using ProjectAssets.Resources.Scripts.Interfacese;
+using ProjectAssets.Resources.Scripts.Models;
 using UnityEngine;
 using UnityEngine.Events;
 
 namespace ProjectAssets.Resources.Scripts.Scriptable
 {
     [CreateAssetMenu(fileName = "ListTile", menuName = "ListView", order = 1)]
-    public class ListTile : ScriptableObject
+    public class ListTile : ScriptableObject, ITile
     {
         [Header("Text")]
         [SerializeField] public string Header;
@@ -19,12 +21,21 @@ namespace ProjectAssets.Resources.Scripts.Scriptable
         [SerializeField] public StorePoints Action;
         [HideInInspector] public bool IsEnable;
         [HideInInspector] public int Level;
-
-        public UnityEvent Bay { get; set; }
-
-        public int GetCoast()
+        public UnityEvent OnBuying { get; set; }
+        
+        public long GetCoast()
         {
-            return (int)Math.Round(BaceCoast * CoastScaling * Level);
+            long coast = BaceCoast;
+            for (var i = 0; i < Level - 1; i++)
+            {
+                coast = (long) (coast * CoastScaling);
+            }
+            return coast;
+        }
+
+        public void Buy(OperationSystem operationSystem)
+        {
+            throw new NotImplementedException();
         }
     }
 }

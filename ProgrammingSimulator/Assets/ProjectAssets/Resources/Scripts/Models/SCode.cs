@@ -97,7 +97,11 @@ namespace ProjectAssets.Resources.Scripts.Models
 
         private void UpdateGuaranteedCode()
         {
-            GuaranteedCode = (int)Math.Round(400 * ((int)Experience + 1) * 1.5);
+            GuaranteedCode = 250;
+            for (var i = 0; i < (int)Experience; i++)
+            {
+                GuaranteedCode *= (int)Experience + 1;
+            }
         }
 
         private void UpdateProbability()

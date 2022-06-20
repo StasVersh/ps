@@ -1,3 +1,5 @@
+using ProjectAssets.Resources.Scripts.Interfacese;
+
 namespace ProjectAssets.Resources.Scripts.Models
 {
     public class Building : ITask

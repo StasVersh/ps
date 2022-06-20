@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using ProjectAssets.Resources.Scripts.Interfacese;
 using ProjectAssets.Resources.Scripts.Structures;
 
 namespace ProjectAssets.Resources.Scripts.Models
@@ -39,7 +40,7 @@ namespace ProjectAssets.Resources.Scripts.Models
             EventHandler.OperationSystem.Invoke();
         }
 
-        public bool WriteOffScd(int value)
+        public bool WriteOffScd(long value)
         {
             if(value > Scd) return false;
             Scd -= value;
