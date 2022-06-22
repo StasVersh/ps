@@ -4,7 +4,7 @@ using UnityEngine;
 using Zenject;
 using EventHandler = ProjectAssets.Resources.Scripts.Models.EventHandler;
 
-namespace ProjectAssets.Resources.Scripts.Controllers
+namespace ProjectAssets.Resources.Scripts.Controllers.Viewers
 {
     [RequireComponent(typeof(TMP_Text))]
     public class GuaranteedCodeController : MonoBehaviour

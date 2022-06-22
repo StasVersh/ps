@@ -59,7 +59,7 @@ namespace ProjectAssets.Resources.Scripts.Controllers.StoreApp
     
         private void Baying(ListTile listTile)
         {
-            if (!_os.WriteOffScd(listTile.GetCoast())) return;
+            if (!listTile.Buy(_os)) return;
             Action(listTile.Action);
             UpdateList();
         }

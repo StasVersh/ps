@@ -97,11 +97,12 @@ namespace ProjectAssets.Resources.Scripts.Models
 
         private void UpdateGuaranteedCode()
         {
-            GuaranteedCode = 250;
+            var coast = 250;
             for (var i = 0; i < (int)Experience; i++)
             {
-                GuaranteedCode *= (int)Experience + 1;
+                coast *= 2;
             }
+            GuaranteedCode = coast;
         }
 
         private void UpdateProbability()

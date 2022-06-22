@@ -15,8 +15,8 @@ MonoBehaviour:
   Header: Books on programming
   Description: Books increase your programming skills, which in turn allows you to
     write large amounts of code without errors on the build step
-  BaceCoast: 1500
+  BaceCoast: 1000
   CoastScaling: 1.5
   Action: 1
-  IsEnable: 1
+  IsEnable: 0
   Level: 1

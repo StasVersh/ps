@@ -1,4 +1,3 @@
-using System;
 using ProjectAssets.Resources.Scripts.Enums;
 using ProjectAssets.Resources.Scripts.Interfacese;
 using ProjectAssets.Resources.Scripts.Models;
@@ -33,9 +32,9 @@ namespace ProjectAssets.Resources.Scripts.Scriptable
             return coast;
         }
 
-        public void Buy(OperationSystem operationSystem)
+        public bool Buy(OperationSystem operationSystem)
         {
-            throw new NotImplementedException();
+            return operationSystem.WriteOffScd(GetCoast());
         }
     }
 }
