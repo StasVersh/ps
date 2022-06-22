@@ -2,17 +2,33 @@
 using ProjectAssets.Resources.Scripts.Models;
 using ProjectAssets.Resources.Scripts.Utilities;
 using UnityEngine;
+using Zenject;
 using EventHandler = ProjectAssets.Resources.Scripts.Models.EventHandler;
+using Input = ProjectAssets.Resources.Scripts.Models.Input;
 
 namespace ProjectAssets.Resources.Scripts.Controllers.OS
 {
     public class BuildingEndAlertController : MonoBehaviour
     {
         [SerializeField] private ModalWindowManager _modalWindow;
+        private Input _input;
 
+        [Inject]
+        private void Construct(Input input)
+        {
+            _input = input;
+        }
+        
         private void Start()
         {
             EventHandler.BuildingEnd.AddListener(BuildingEnd);
+            _input.Complite.AddListener(Close);
+        }
+
+        private void Close()
+        {
+            if (_modalWindow == null) return;
+            _modalWindow.CloseWindow();
         }
 
         private void BuildingEnd(Building building)

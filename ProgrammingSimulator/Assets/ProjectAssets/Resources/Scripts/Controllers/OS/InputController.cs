@@ -65,6 +65,10 @@ namespace ProjectAssets.Resources.Scripts.Controllers.OS
             {
                 _input.LastApp.Invoke();
             }
+            else if (UnityEngine.Input.GetKey(KeyCode.Return) || UnityEngine.Input.GetKey(KeyCode.Space))
+            {
+                _input.Complite.Invoke();
+            }
             else
             {
                 foreach (var unused in _codeKeyCodes.Where(UnityEngine.Input.GetKeyDown))
