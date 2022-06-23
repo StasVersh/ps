@@ -1,4 +1,5 @@
 ﻿using System;
+using UnityEngine.Serialization;
 
 namespace ProjectAssets.Resources.Scripts.Structures
 {
@@ -7,14 +8,14 @@ namespace ProjectAssets.Resources.Scripts.Structures
     {
         public int TypingSpeedLevel;
         public int BookOnProgrammingLevel;
-        public int CourseOurSelfPriceLevel;
+        [FormerlySerializedAs("CourseOurSelfPriceLevel")] public int LanguageLevel;
         public int BuildingSpeedLevel;
 
         public void SetDefault()
         {
             TypingSpeedLevel = 1;
             BookOnProgrammingLevel = 1;
-            CourseOurSelfPriceLevel = 1;
+            LanguageLevel = 1;
             BuildingSpeedLevel = 1;
         }
     }

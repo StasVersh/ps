@@ -13037,7 +13037,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 250, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1183206911
@@ -13294,13 +13294,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1209168919}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 66a367d67f0e417fba0503816e91afd5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _listTilePrefab: {fileID: 3955821458628920184, guid: 201d5469ec0433ed693f093d2b631430, type: 3}
-  ListTiles: []
+  ListTiles:
+  - {fileID: 11400000, guid: 0e47d56e70f8c5729ab49434dda51d98, type: 2}
 --- !u!114 &1209168923
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20558,7 +20559,6 @@ MonoBehaviour:
   ListTiles:
   - {fileID: 11400000, guid: 1209f118ad995832e91e735d7b24100c, type: 2}
   - {fileID: 11400000, guid: 10aced84c3f39534ba50dca7d82a23eb, type: 2}
-  - {fileID: 11400000, guid: 0e47d56e70f8c5729ab49434dda51d98, type: 2}
 --- !u!1001 &1836844084
 PrefabInstance:
   m_ObjectHideFlags: 0

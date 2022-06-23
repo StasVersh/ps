@@ -76,9 +76,9 @@ namespace ProjectAssets.Resources.Scripts.Controllers.StoreApp
                     _sCode.IncreaseExperienceLevel();
                     _store.IncreaseBookOnProgrammingLevel();
                     break;
-                case StorePoints.CourseOurSelfPrice:
-                    _sCode.IncreaseConversionPrice(1);
-                    _store.IncreaseCourseOurSelfPriceLevel();
+                case StorePoints.NewIde:
+                    _sCode.IncreaseProgramingLanguages();
+                    _store.IncreaseLanguageLevel();
                     break;
                 case StorePoints.NewProcessor:
                     _os.IncreaseBuildingSpeed();

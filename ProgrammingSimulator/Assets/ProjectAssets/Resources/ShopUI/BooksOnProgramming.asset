@@ -18,5 +18,5 @@ MonoBehaviour:
   BaceCoast: 1000
   CoastScaling: 1.5
   Action: 1
-  IsEnable: 0
-  Level: 1
+  IsEnable: 1
+  Level: 5

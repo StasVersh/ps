@@ -4,7 +4,7 @@ namespace ProjectAssets.Resources.Scripts.Enums
     {
         TypingSpeed,
         BookOnProgramming,
-        CourseOurSelfPrice,
+        NewIde,
         NewProcessor,
     }
 }

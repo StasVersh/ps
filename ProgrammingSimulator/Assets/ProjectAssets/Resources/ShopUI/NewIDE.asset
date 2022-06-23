@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9f4ebb1322538a5088161d9f781bcf89, type: 3}
-  m_Name: CourseOurSelfPrice
+  m_Name: NewIDE
   m_EditorClassIdentifier: 
-  Header: Course "Our self-price"
-  Description: This course will help you know your price in the labor market, which
-    will increase the price of your code
+  Header: New IDE
+  Description: A new IDE will allow you to learn a new programming language, which
+    will increase the cost of your code
   BaceCoast: 5000
   CoastScaling: 1.5
   Action: 2

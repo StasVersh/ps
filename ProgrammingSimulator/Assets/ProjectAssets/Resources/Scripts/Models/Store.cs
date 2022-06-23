@@ -7,14 +7,14 @@ namespace ProjectAssets.Resources.Scripts.Models
     {
         public int TypingSpeedLevel { get; private set; }
         public int BookOnProgrammingLevel { get; private set; }
-        public int CourseOurSelfPriceLevel { get; private set; }
+        public int LanguageLevel { get; private set; }
         public int BuildingSpeedLevel { get; private set; }
 
         public Store()
         {
             TypingSpeedLevel = 1;
             BookOnProgrammingLevel = 1;
-            CourseOurSelfPriceLevel = 1;
+            LanguageLevel = 1;
             BuildingSpeedLevel = 1;
         }
         
@@ -22,7 +22,7 @@ namespace ProjectAssets.Resources.Scripts.Models
         {
             TypingSpeedLevel = @struct.TypingSpeedLevel;
             BookOnProgrammingLevel = @struct.BookOnProgrammingLevel;
-            CourseOurSelfPriceLevel = @struct.CourseOurSelfPriceLevel;
+            LanguageLevel = @struct.LanguageLevel;
             BuildingSpeedLevel = @struct.BuildingSpeedLevel;
             EventHandler.Store.Invoke();
         }
@@ -33,7 +33,7 @@ namespace ProjectAssets.Resources.Scripts.Models
             {
                 TypingSpeedLevel = TypingSpeedLevel,
                 BookOnProgrammingLevel = BookOnProgrammingLevel,
-                CourseOurSelfPriceLevel = CourseOurSelfPriceLevel,
+                LanguageLevel = LanguageLevel,
                 BuildingSpeedLevel = BuildingSpeedLevel
             };
         }
@@ -50,9 +50,9 @@ namespace ProjectAssets.Resources.Scripts.Models
             EventHandler.Store.Invoke();
         }
         
-        public void IncreaseCourseOurSelfPriceLevel()
+        public void IncreaseLanguageLevel()
         {
-            CourseOurSelfPriceLevel += 1;
+            LanguageLevel += 1;
             EventHandler.Store.Invoke();
         }
         
@@ -68,7 +68,7 @@ namespace ProjectAssets.Resources.Scripts.Models
             {
                 StorePoints.TypingSpeed => TypingSpeedLevel,
                 StorePoints.BookOnProgramming => BookOnProgrammingLevel,
-                StorePoints.CourseOurSelfPrice => CourseOurSelfPriceLevel,
+                StorePoints.NewIde => LanguageLevel,
                 StorePoints.NewProcessor => BuildingSpeedLevel,
                 _ => 1
             };

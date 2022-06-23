@@ -1,47 +1,40 @@
-using System;
 using System.Collections.Generic;
 using ProjectAssets.Resources.Scripts.Enums;
 using ProjectAssets.Resources.Scripts.Structures;
-using UnityEngine;
 
 namespace ProjectAssets.Resources.Scripts.Models
 {
     public class SCode
     {
         public int TypingSpeed { get; private set; }
-        public int ConversionPrice { get; private set; }
-
         public int Symbols  { get; private set; }
         public int GuaranteedCode  { get; private set; }
-
         public float Probability { get; private set; }    
         public Experience Experience { get; private set; } 
         public ProgramingLanguages ProgramingLanguage { get; private set; }
-        public List<TextAsset> BinaryCode { get; }
+        public List<Language> LanguagesAssets { get; }
 
-        public SCode(List<TextAsset> binaryCode)
+        public SCode(List<Language> languagesAssets)
         {
             TypingSpeed = 1;
-            ConversionPrice = 1;
             Symbols = 0;
             Experience = 0;
             ProgramingLanguage = 0;
+            LanguagesAssets = languagesAssets;
             UpdateGuaranteedCode();
-            UpdateProbability();
-            BinaryCode = binaryCode;
             UpdateProbability();
         }
 
         public void StructToModel(SCodeStruct @struct)
         {
             TypingSpeed = @struct.TypingSpeed;
-            ConversionPrice = @struct.ConversionPrice;
             Symbols = @struct.Symbols;
             Experience = (Experience)@struct.Experience;
             ProgramingLanguage = (ProgramingLanguages)@struct.ProgramingLanguage;
             UpdateProbability();
             UpdateGuaranteedCode();
             EventHandler.SCode.Invoke();
+            EventHandler.ProgrammingLanguage.Invoke();
         }
         
         public SCodeStruct ModelToSruct()
@@ -49,19 +42,12 @@ namespace ProjectAssets.Resources.Scripts.Models
             return new SCodeStruct
             {
                 TypingSpeed = TypingSpeed,
-                ConversionPrice = ConversionPrice,
                 Symbols = Symbols,
                 Experience = (int)Experience,
                 ProgramingLanguage = (int)ProgramingLanguage
             };
         }
 
-        public void IncreaseConversionPrice(int value)
-        {
-            ConversionPrice += value;
-            EventHandler.SCode.Invoke();
-        }
-        
         public void IncreaseTypingSpeed(int value)
         {
             TypingSpeed += value;
@@ -92,6 +78,7 @@ namespace ProjectAssets.Resources.Scripts.Models
         public void IncreaseProgramingLanguages()
         {
             ProgramingLanguage += 1;
+            EventHandler.ProgrammingLanguage.Invoke();
             EventHandler.SCode.Invoke();
         }
 

@@ -1,7 +1,7 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using ModestTree;
+using ProjectAssets.Resources.Scripts.Enums;
 using ProjectAssets.Resources.Scripts.Models;
 using TMPro;
 using UnityEngine;
@@ -37,11 +37,18 @@ namespace ProjectAssets.Resources.Scripts.Controllers.SCodeApp
             _text = GetComponent<TMP_Text>();
             _scrollRect = gameObject.transform.parent.parent.GetComponent<ScrollRect>();
             EventHandler.CurrentApp.AddListener(CurrentWindowChanging);
+            EventHandler.ProgrammingLanguage.AddListener(NewLanguage);
+        }
+
+        private void NewLanguage()
+        {
+            _text.text = GetNewCodeExample(_sCode.ProgramingLanguage);
+            _code.Clear();
         }
 
         private void Start()
         {
-            _text.text = _sCode.BinaryCode[Random.Range(0, _sCode.BinaryCode.Count - 1)].ToString();
+            _text.text = GetNewCodeExample(_sCode.ProgramingLanguage);
             _scrollRect.normalizedPosition = new Vector2(0, 0);
         }
 
@@ -55,25 +62,30 @@ namespace ProjectAssets.Resources.Scripts.Controllers.SCodeApp
         {
             if(!_isCoding) return;
             if(!_os.Tasks.IsEmpty() && _os.Tasks.First() is Building) return;
-            if (_code.IsEmpty()) _code = GetNewCodeExample();
+            if (_code.IsEmpty()) _code = GetNewCodeExampleByList(_sCode.ProgramingLanguage);
             var currentIndex = _sCode.TypingSpeed;
             while (currentIndex > 0)
             {
                 _text.text += _code.First();
                 _code.RemoveAt(0);
-                if (_code.IsEmpty()) _code =  GetNewCodeExample();
-                if (_code.First() != ' ' && _code.First() != '\n') currentIndex--;
+                if (_code.IsEmpty()) _code =  GetNewCodeExampleByList(_sCode.ProgramingLanguage);
+                if (_code.First() != ' ') currentIndex--;
+                if (_code.First() != '\n') currentIndex--;
                 _sCode.IncreaseSymbolsByOne();
                 _scrollRect.normalizedPosition = new Vector2(0, 0);
             }
         }
 
-        private List<char> GetNewCodeExample()
+        private List<char> GetNewCodeExampleByList(ProgramingLanguages languages)
         {
-            return _sCode.BinaryCode[Random.Range(0, _sCode.BinaryCode.Count - 1)]
-                .ToString()
+            return GetNewCodeExample(languages)
                 .ToCharArray()
                 .ToList();
+        }
+        
+        private string GetNewCodeExample(ProgramingLanguages languages)
+        {
+            return _sCode.LanguagesAssets.First(language => language.ProgramingLanguages == languages).Assets[Random.Range(0, _sCode.LanguagesAssets.Count - 1)].ToString();
         }
     }
 }

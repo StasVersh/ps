@@ -39,7 +39,7 @@ namespace ProjectAssets.Resources.Scripts.Controllers.SCodeApp
             if (!canStart || _sCode.Symbols <= 0) return;
             
             var isSuccessfully = Random.Range(0, 100) < Mathf.Round(_sCode.Probability * 100);
-            _os.AddTask(new Building(_os.BuildingSpeed, _sCode.Symbols, _sCode.ConversionPrice, _sCode.Probability, isSuccessfully));
+            _os.AddTask(new Building(_os.BuildingSpeed, _sCode.Symbols, (int)_sCode.ProgramingLanguage + 1, _sCode.Probability, isSuccessfully));
             _sCode.ResetSymbols();
         }
     }

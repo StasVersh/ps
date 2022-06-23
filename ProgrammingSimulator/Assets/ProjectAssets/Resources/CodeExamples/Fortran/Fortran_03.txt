@@ -1,0 +1,39 @@
+PROGRAM Triangle
+     IMPLICIT NONE
+     REAL :: a, b, c, Area
+     PRINT *, 'Welcome, please enter the&
+              &lengths of the 3 sides.'
+     READ *, a, b, c
+     PRINT *, 'Triangle''s area:  ', Area(a,b,c)
+    END PROGRAM Triangle
+    FUNCTION Area(x,y,z)
+     IMPLICIT NONE
+     REAL :: Area            ! function type
+     REAL, INTENT( IN ) :: x, y, z
+     REAL :: theta, height
+     theta = ACOS((x**2+y**2-z**2)/(2.0*x*y))
+     height = x*SIN(theta); Area = 0.5*y*height
+    END FUNCTION Area
+    
+program summation
+    implicit none
+    integer :: sum, a
+
+    print *, "This program performs summations. Enter 0 to stop."
+    open (unit=10, file="SumData.DAT")
+    sum = 0
+    do
+        print *, "Add:"
+        read *, a
+        if (a == 0) then
+            exit
+        else
+            sum = sum + a
+        end if
+        write (10,*) a
+    end do
+
+    print *, "Summation =", sum
+    write (10,*) "Summation =", sum
+    close(10)
+end

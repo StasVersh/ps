@@ -1,0 +1,57 @@
+program test_gauss_sparse
+    implicit none
+
+!   explicit interface to the gauss_sparse function
+    interface
+        function gauss_sparse(num_iter, tol, b, A, x, actual_iter) result(tol_max)
+           real ::  tol_max
+           integer, intent(in) :: num_iter
+           real, intent(in) :: tol
+           real, intent(in), dimension(:) :: b, A(:,:)
+           real, intent(inout) :: x(:)
+           integer, optional, intent(out) :: actual_iter
+        end function
+    end interface
+
+!   declare variables
+    integer :: i, N = 3, actual_iter
+    real :: residue
+    real, allocatable :: A(:,:), x(:), b(:)
+
+!   allocate arrays
+    allocate (A(N, N), b(N), x(N))
+
+!   Initialize matrix
+    A = reshape([(real(i), i = 1, size(A))], shape(A))
+
+!   Make matrix diagonally dominant
+    do i = 1, size(A, 1)
+        A(i,i) = sum(A(i,:)) + 1
+    enddo
+
+!   Initialize b
+    b = [(i, i = 1, size(b))]
+
+!   Initial (guess) solution
+    x = b
+
+!   invoke the gauss_sparse function 
+    residue = gauss_sparse(num_iter = 100, &
+                           tol = 1E-5, &
+                           b = b, &
+                           A = a, &
+                           x = x, &
+                           actual_iter = actual_iter)
+
+!   Output
+    print '(/ "A = ")'
+    do i = 1, size(A, 1)
+        print '(100f6.1)', A(i,:)
+    enddo
+
+    print '(/ "b = " / (f6.1))', b
+
+    print '(/ "residue = ", g10.3 / "iterations = ", i0 / "solution = "/ (11x, g10.3))', &
+        residue, actual_iter, x
+
+end program test_gauss_sparse

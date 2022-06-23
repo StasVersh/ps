@@ -27,7 +27,7 @@ namespace ProjectAssets.Resources.Scripts.Controllers.Viewers
         
         private void UpdateText()
         {
-            _text.text = 1 + "/" + _sCode.ConversionPrice.ToString();
+            _text.text = 1 + "/" + ((int)_sCode.ProgramingLanguage + 1);
         }
     }
 }

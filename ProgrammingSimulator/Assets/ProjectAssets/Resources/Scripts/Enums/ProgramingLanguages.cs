@@ -3,6 +3,27 @@ namespace ProjectAssets.Resources.Scripts.Enums
     public enum ProgramingLanguages
     {
         BinaryCode,
-        Assembler,
+        Fortran,
+        COBL,
+        BASIC,
+        Pascal,
+        C,
+        Smalltalk,
+        Perl,
+        ObjectiveC,
+        CPlasPlas,
+        Lua,
+        PHP,
+        Ruby,
+        Java,
+        JavaScript,
+        CSharp,
+        Rust,
+        Swift,
+        TypeScript,
+        Go,
+        Kotlin,
+        Dart,
+        Python,
     }
 }
