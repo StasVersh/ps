@@ -1,7 +1,7 @@
 {
   "dependencies": {
     "com.unity.2d.animation": {
-      "version": "8.0.1",
+      "version": "8.0.0",
       "depth": 1,
       "source": "registry",
       "dependencies": {
@@ -67,7 +67,7 @@
       "dependencies": {}
     },
     "com.unity.2d.tilemap.extras": {
-      "version": "3.0.2",
+      "version": "3.0.0",
       "depth": 1,
       "source": "registry",
       "dependencies": {
@@ -79,7 +79,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.burst": {
-      "version": "1.7.1",
+      "version": "1.6.0",
       "depth": 3,
       "source": "registry",
       "dependencies": {
@@ -108,13 +108,13 @@
       "depth": 0,
       "source": "builtin",
       "dependencies": {
-        "com.unity.2d.animation": "8.0.1",
+        "com.unity.2d.animation": "8.0.0",
         "com.unity.2d.pixel-perfect": "5.0.1",
         "com.unity.2d.psdimporter": "7.0.0",
         "com.unity.2d.sprite": "1.0.0",
         "com.unity.2d.spriteshape": "8.0.0",
         "com.unity.2d.tilemap": "1.0.0",
-        "com.unity.2d.tilemap.extras": "3.0.2"
+        "com.unity.2d.tilemap.extras": "3.0.0"
       }
     },
     "com.unity.ide.rider": {
@@ -143,14 +143,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.mathematics": {
-      "version": "1.2.6",
-      "depth": 2,
-      "source": "registry",
-      "dependencies": {},
-      "url": "https://packages.unity.com"
-    },
-    "com.unity.nuget.newtonsoft-json": {
-      "version": "3.0.2",
+      "version": "1.2.5",
       "depth": 2,
       "source": "registry",
       "dependencies": {},
@@ -166,13 +159,11 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.services.core": {
-      "version": "1.4.0",
+      "version": "1.0.1",
       "depth": 1,
       "source": "registry",
       "dependencies": {
-        "com.unity.modules.unitywebrequest": "1.0.0",
-        "com.unity.nuget.newtonsoft-json": "3.0.2",
-        "com.unity.modules.androidjni": "1.0.0"
+        "com.unity.modules.unitywebrequest": "1.0.0"
       },
       "url": "https://packages.unity.com"
     },

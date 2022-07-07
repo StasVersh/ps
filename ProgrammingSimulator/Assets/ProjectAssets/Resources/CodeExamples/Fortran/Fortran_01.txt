@@ -1,6 +1,6 @@
 PROGRAM EUCLID
          PRINT *, 'A?'
-         READ *, NA
+        READ *, NA
          IF (NA.LE.0) THEN
            PRINT *, 'A must be a positive integer.'
            STOP
@@ -14,7 +14,6 @@ PROGRAM EUCLID
          PRINT *, 'The GCD of', NA, ' and', NB, ' is', NGCD(NA, NB), '.'
          STOP
        END
- 
        FUNCTION NGCD(NA, NB)
          IA = NA
          IB = NB
@@ -27,11 +26,9 @@ PROGRAM EUCLID
          NGCD = IA
          RETURN
        END
-       
 program area
      implicit none
      real :: A, B, C, S
- 
      ! area of a triangle
      read *, A, B, C
      S = (A + B + C)/2
@@ -39,4 +36,23 @@ program area
      print *,"area =",A
      stop
  end program area
- 
+program summation
+    implicit none
+    integer :: sum, a
+    print *, "This program performs summations. Enter 0 to stop."
+    open (unit=10, file="SumData.DAT")
+    sum = 0
+    do
+        print *, "Add:"
+        read *, a
+        if (a == 0) then
+            exit
+        else
+            sum = sum + a
+        end if
+        write (10,*) a
+    end do
+    print *, "Summation =", sum
+    write (10,*) "Summation =", sum
+    close(10)
+end

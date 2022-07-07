@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 using ModestTree;
 using ProjectAssets.Resources.Scripts.Enums;
 using ProjectAssets.Resources.Scripts.Models;
@@ -37,27 +38,28 @@ namespace ProjectAssets.Resources.Scripts.Controllers.SCodeApp
             _text = GetComponent<TMP_Text>();
             _scrollRect = gameObject.transform.parent.parent.GetComponent<ScrollRect>();
             EventHandler.CurrentApp.AddListener(CurrentWindowChanging);
-            EventHandler.ProgrammingLanguage.AddListener(NewLanguage);
-        }
-
-        private void NewLanguage()
-        {
-            _text.text = GetNewCodeExample(_sCode.ProgramingLanguage);
-            _code.Clear();
+            EventHandler.ProgrammingLanguage.AddListener(GenerateNewCodeExample);
+            EventHandler.BuildingEnd.AddListener(arg0 => GenerateNewCodeExample());
         }
 
         private void Start()
         {
             _text.text = GetNewCodeExample(_sCode.ProgramingLanguage);
-            _scrollRect.normalizedPosition = new Vector2(0, 0);
+            Scrolling(0, 0);
         }
 
         private void CurrentWindowChanging(App state)
         {
             _isCoding = state is App.SCode;
         }
-
-
+        
+        private void GenerateNewCodeExample()
+        {
+            _text.text = GetNewCodeExample(_sCode.ProgramingLanguage);
+            _code.Clear();
+            Scrolling(1, 1);
+        }
+        
         private void UpdateText()
         {
             if(!_isCoding) return;
@@ -72,8 +74,13 @@ namespace ProjectAssets.Resources.Scripts.Controllers.SCodeApp
                 if (_code.First() != ' ') currentIndex--;
                 if (_code.First() != '\n') currentIndex--;
                 _sCode.IncreaseSymbolsByOne();
-                _scrollRect.normalizedPosition = new Vector2(0, 0);
+                Scrolling(0, 0);
             }
+        }
+
+        private void Scrolling(int x, int y)
+        {
+            _scrollRect.normalizedPosition = new Vector2(x, y);
         }
 
         private List<char> GetNewCodeExampleByList(ProgramingLanguages languages)
