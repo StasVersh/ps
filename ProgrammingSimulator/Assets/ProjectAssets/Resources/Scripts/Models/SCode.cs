@@ -16,11 +16,15 @@ namespace ProjectAssets.Resources.Scripts.Models
 
         public SCode(List<Language> languagesAssets)
         {
+            LanguagesAssets = languagesAssets;
+            ResetValues();
+        }
+
+        private void ResetValues()
+        {
             TypingSpeed = 1;
             Symbols = 0;
             Experience = 0;
-            ProgramingLanguage = 0;
-            LanguagesAssets = languagesAssets;
             UpdateGuaranteedCode();
             UpdateProbability();
         }
@@ -78,6 +82,7 @@ namespace ProjectAssets.Resources.Scripts.Models
         public void IncreaseProgramingLanguages()
         {
             ProgramingLanguage += 1;
+            ResetValues();
             EventHandler.ProgrammingLanguage.Invoke();
             EventHandler.SCode.Invoke();
         }

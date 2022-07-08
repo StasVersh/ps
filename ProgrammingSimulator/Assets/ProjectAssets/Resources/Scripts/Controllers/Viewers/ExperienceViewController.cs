@@ -1,3 +1,4 @@
+using ProjectAssets.Resources.Scripts.Enums;
 using ProjectAssets.Resources.Scripts.Models;
 using TMPro;
 using UnityEngine;
@@ -10,12 +11,12 @@ namespace ProjectAssets.Resources.Scripts.Controllers.Viewers
     public class ExperienceViewController : MonoBehaviour
     {
         private TMP_Text _text;
-        private SCode _sCode;
+        private Store _store;
 
         [Inject]
-        private void Construct(SCode sCode)
+        private void Construct(Store store)
         {
-            _sCode = sCode;
+            _store = store;
         }
 
         private void OnEnable()
@@ -27,7 +28,7 @@ namespace ProjectAssets.Resources.Scripts.Controllers.Viewers
         
         private void UpdateText()
         {
-            _text.text = _sCode.Experience.ToString();
+            _text.text = ((Experience)_store.BookOnProgrammingLevel).ToString();
         }
     }
 }

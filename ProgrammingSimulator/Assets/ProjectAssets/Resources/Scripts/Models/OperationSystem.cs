@@ -14,10 +14,16 @@ namespace ProjectAssets.Resources.Scripts.Models
         public OperationSystem()
         {
             Scd = 0;
-            BuildingSpeed = 5;
             Tasks = new List<ITask>();
+            ResetBuildingSpeed();
+            EventHandler.ProgrammingLanguage.AddListener(ResetBuildingSpeed);
         }
-        
+
+        private void ResetBuildingSpeed()
+        {
+            BuildingSpeed = 5;
+        }
+
         public void StructToModel(OperationSystemStruct @struct)
         {
             Scd = @struct.Scd;
